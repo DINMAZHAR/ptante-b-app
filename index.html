@@ -1,11 +1,118 @@
+<!DOCTYPE html>
 <html>
-<body style="text-align:center; font-family:sans-serif; background:lightblue; padding:30px">
-<h1>IT Patente B - Azhar PK</h1>
-<h2 style="font-size:80px">🛑 STOP</h2>
-<p><b>Il segnale indica STOP</b></p>
-<p style="color:red; font-weight:bold; background:white; padding:10px">Is nishaan ka matlab hai Ruk Jao</p>
-<button style="padding:15px; font-size:20px; background:blue; color:white; width:45%">Vero Sahi</button>
-<button style="padding:15px; font-size:20px; background:blue; color:white; width:45%">Falso Ghalat</button>
-<p>Ye test hai - Agar ye nazar aa raha hai to app theek hai!</p>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patente B - Azhar PK</title>
+<style>
+*{box-sizing:border-box; font-family:sans-serif}
+body{margin:0; background:#0a1f3a; color:white}
+#entry{padding:20px; max-width:500px; margin:auto}
+#entry h2{text-align:center}
+.cardE{background:#1a345e; border:1px solid #8aa; border-radius:25px; padding:20px; margin:15px 0; cursor:pointer; text-align:center}
+.cardE:active{background:#2a4a7a; transform:scale(0.98)}
+.cardE img{width:160px; background:white; border-radius:10px; margin-top:10px}
+.small{font-size:12px; opacity:0.8; margin-top:10px}
+
+/* EXAM APP - hidden at start */
+#examApp{display:none; background:white; color:black; min-height:100vh}
+.top{display:flex} .left{width:28%; background:#1a5fb4; color:white; padding:8px; text-align:center} .box{background:white; color:black; padding:8px; margin-bottom:6px; font-size:12px}
+.right{width:72%; padding:10px; position:relative} .risposta{position:absolute; right:20px; top:50%}
+.risposta button{width:70px; height:70px; font-size:40px; border:2px solid #1a5fb4; background:white; border-radius:6px}
+.bottom{display:flex; background:#e9eef5} .nav{display:grid; grid-template-columns:repeat(10,1fr); gap:2px; flex:1} .nav div{padding:6px; text-align:center; background:#a3c2e8; font-weight:bold}
+.btn-blue{background:#1a5fb4; color:white; border:none; padding:8px}
+#timer{font-weight:bold; font-size:20px}
+</style>
+</head>
+<body>
+
+<!-- YAHI WOH SCREEN HAI JO AAPKI PHOTO ME HAI -->
+<div id="entry">
+<h2>Modalità schede d'esame</h2>
+
+<div class="cardE" onclick="openMode('vertical')">
+La modalità <b>esercitazione (verticale)</b> è ottimizzata per il tuo dispositivo mobile, veloce e semplice, ti aiuta a studiare i quiz
+<br>
+<img src="https://i.ibb.co/1fG8v0p7/vertical-demo.png" onerror="this.src='https://via.placeholder.com/150x300?text=↑+Segnale'">
+</div>
+
+<div class="cardE" onclick="openMode('orizzontale')">
+Per fare come se fossi <b>all'esame</b> metti il tuo dispositivo in <b>orizzontontale</b>.<br>
+Per vedere lo schermo come all'esame, esercitati sul computer della tua autoscuola oppure con www.patenteonline.it.<br><br>
+Prima di fare come all'esame, guarda le istruzioni nel "tutorial per l'esame" che trovi nelle videolezioni
+<br>
+<img src="https://i.ibb.co/1fG8v0p7/vertical-demo.png" onerror="this.src='https://via.placeholder.com/300x150?text=Domanda+1+di+40+V+F'">
+<div class="small">Escluse le regioni Sicilia, Trentino Alto Adige, Valle D'Aosta, Friuli Venezia Giulia</div>
+</div>
+
+<label style="display:flex; align-items:center; gap:10px; margin-top:20px"><input type="checkbox" style="width:25px; height:25px"> Non mostrare più. Potrai cambiare la tua scelta dal menù</label>
+</div>
+
+<!-- ASAL EXAM -->
+<div id="examApp">
+<div class="top">
+<div class="left">
+<div class="box">👨<br><b>dinm0</b><br>CODICE FISCALE<br>Scheda fac-simile esame G6<br>Abilitazione: SUP</div>
+<div class="box">Tempo a disposizione<br><span id="timer">39:59</span><br><button class="btn-blue" style="width:100%">Riepilogo</button></div>
+<div style="font-size:10px; margin-top:5px">Ministero Infrastrutture e Trasporti</div>
+</div>
+<div class="right">
+<b id="qCount">Domanda 1 di 40</b>
+<p id="qIta" style="font-size:18px; margin:20px 0">I tempi definiti "altri lavori" sono considerati tempi di guida</p>
+<p id="qUrdu" style="color:red; background:#fff0f0; padding:5px; font-weight:bold">Ye driving time me shumar hota hai?</p>
+<img id="qImg" style="max-width:180px; display:none">
+<div class="risposta">Risposta<br><button onclick="ans('V')" id="bV">V</button><button onclick="ans('F')" id="bF">F</button></div>
+</div>
+</div>
+<div class="bottom">
+<button class="btn-blue" onclick="prev()">←</button>
+<div class="nav" id="nav"></div>
+<button class="btn-blue" onclick="next()">→</button>
+</div>
+</div>
+
+<script>
+let cur=0, time=40*60-1, risp=Array(40).fill(null);
+let qs=[
+{ita:"I tempi definiti \"altri lavori\" sono considerati tempi di guida", urdu:"Doosre kaam driving time hain?", ans:"F"},
+{ita:"Il segnale indica diritto di precedenza", urdu:"Pehle jane ka haq", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Italian_traffic_signs_-_diritto_di_precedenza.svg/200px-Italian_traffic_signs_-_diritto_di_precedenza.svg.png"},
+{ita:"Il segnale di STOP obbliga a fermarsi", urdu:"STOP par rukna zaroori", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Italian_traffic_signs_-_stop.svg/200px-Italian_traffic_signs_-_stop.svg.png"},
+];
+for(let i=qs.length;i<40;i++) qs.push({ita:"Domanda "+(i+1)+" fac-simile - Il sorpasso in curva è vietato", urdu:"Mor par overtake mana hai?", ans:"V"})
+
+function openMode(m){
+ if(m=='vertical'){
+   alert("Verticale Mode - Mobile ke liye! Abhi aapko seedha exam mode me le ja rahe hain, vertical wala kal add kar denge!");
+ }
+ document.getElementById('entry').style.display='none';
+ document.getElementById('examApp').style.display='block';
+ if(m=='orizzontale' && window.innerHeight>window.innerWidth){
+   alert("📱 Phone ko ghumao! Horizontal (Seedha) karo jaise exam me hota hai!");
+ }
+ render();
+ setInterval(()=>{
+   let mm=Math.floor(time/60), ss=time%60;
+   document.getElementById('timer').innerText=(mm<10?"0"+mm:mm)+":"+(ss<10?"0"+ss:ss);
+   time--;
+ },1000);
+}
+function render(){
+ document.getElementById('qCount').innerText="Domanda "+(cur+1)+" di 40";
+ document.getElementById('qIta').innerText=qs[cur].ita;
+ document.getElementById('qUrdu').innerText=qs[cur].urdu;
+ let im=document.getElementById('qImg');
+ if(qs[cur].img){ im.src=qs[cur].img; im.style.display="block"; } else im.style.display="none";
+ let nav=document.getElementById('nav'); nav.innerHTML="";
+ let s=Math.floor(cur/10)*10;
+ for(let i=s;i<Math.min(s+10,40);i++){
+   let d=document.createElement('div'); d.innerText=i+1;
+   if(i==cur) d.style.borderBottom="3px solid blue";
+   if(risp[i]) d.style.background=risp[i]==qs[i].ans?"#4CAF50":"#ff9800";
+   d.onclick=()=>{cur=i; render();}; nav.appendChild(d);
+ }
+}
+function ans(v){ risp[cur]=v; if(cur<39) cur++; render(); }
+function next(){ if(cur<39) cur++; render(); }
+function prev(){ if(cur>0) cur--; render(); }
+</script>
 </body>
 </html>
