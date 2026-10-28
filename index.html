@@ -2,106 +2,31 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Patente B - 30Q 20Min + Pics - Azhar</title>
+<title>Patente B - Finale 30Q 20Min</title>
 <style>
-*{box-sizing:border-box; font-family:Arial} body{margin:0; background:#0a1f3a; color:white}
-#entry{padding:15px; max-width:500px; margin:auto} #entry h2{text-align:center}
-.cardE{background:#1a345e; border:1px solid #8aa; border-radius:22px; padding:18px; margin:12px 0; cursor:pointer; text-align:center}
-#exam{display:none; background:white; color:black; min-height:100vh}
-.top{display:flex} .left{width:30%; background:#1a5fb4; color:white; padding:8px; text-align:center} .box{background:white; color:black; padding:8px; margin-bottom:6px; font-size:11px; border-radius:3px}
-.right{width:70%; padding:10px; position:relative}
-.picBox{width:100%; background:white; border:2px solid #333; border-radius:10px; height:190px; display:flex; align-items:center; justify-content:center; margin:10px 0}
-.picBox img{max-width:100%; max-height:180px; object-fit:contain}
-.ris{position:absolute; right:10px; top:58%} .ris button{width:62px; height:62px; font-size:36px; border:2px solid #1a5fb4; background:white; border-radius:6px; margin:3px}
-.ris button.sel{background:#1a5fb4; color:white}
-.bottom{display:flex; background:#e9eef5; border-top:2px solid #ccc}
-.nav{flex:1; display:grid; grid-template-columns:repeat(10,1fr); gap:2px; padding:4px}
-.nav div{padding:7px 0; text-align:center; background:#a3c2e8; font-weight:bold; cursor:pointer; border-bottom:3px solid transparent}
-.nav div.active{border-bottom:3px solid #1a5fb4; background:#7bb2ff}
-.nav div.ok{background:#4CAF50; color:white} .nav div.no{background:#ff9800; color:white}
-.btn-blue{background:#1a5fb4; color:white; border:none; padding:10px; font-weight:bold}
-#timer{font-size:22px; font-weight:bold; color:red}
-</style>
-</head>
-<body>
-
-<div id="entry">
-<h2>Modalità schede d'esame</h2>
-<div class="cardE" onclick="startExam()">
-La modalità <b>esercitazione (verticale)</b> è ottimizzata per il tuo dispositivo mobile<br><br>📱 <b>MOBILE + PICS</b>
-</div>
-<div class="cardE" onclick="startExam()">
-Per fare come se fossi <b>all'esame</b> metti il tuo dispositivo in <b>orizzontale</b><br><br>🖥️ <b>ESAME REALE - 30Q / 20Min / Con Foto</b>
-</div>
-</div>
-
-<div id="exam">
-<div class="top">
-<div class="left">
-<div class="box">👨<br><b>dinm0 Azhar</b><br>Scheda fac-simile esame B<br>Abilitazione: B</div>
-<div class="box">Tempo a disposizione<br><span id="timer">20:00</span><br><button class="btn-blue" style="width:100%; margin-top:4px" onclick="riepilogo()">Riepilogo</button></div>
-</div>
-<div class="right">
-<b id="qCount">Domanda 1 di 30</b>
-<p id="qIta" style="font-size:16px; font-weight:bold; margin:8px 0">...</p>
-<div class="picBox"><img id="qImg" src=""></div>
-<p id="qUrdu" style="color:#c00000; background:#fff0f0; padding:6px; border-radius:5px; font-weight:bold; font-size:13px"></p>
-<div class="ris">Risposta<br><button id="bV" onclick="answer('V')">V</button><button id="bF" onclick="answer('F')">F</button></div>
-</div>
-</div>
-<div class="bottom">
-<button class="btn-blue" onclick="prev()">←</button>
-<div class="nav" id="nav"></div>
-<button class="btn-blue" onclick="next()">→</button>
-</div>
-</div>
-
-<script>
-// 30 SAWAL - HAR EK ME PIC!
-let qs=[
-{ita:"Il segnale rettangolare blu con freccia dritta indica direzione obbligatoria diritto", urdu:"Neela chaukor nishaan seedha jane ka hukum deta hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Italian_traffic_signs_-_direzione_obbligatoria_dritto.svg/400px-Italian_traffic_signs_-_direzione_obbligatoria_dritto.svg.png"},
-{ita:"Il segnale triangolare con bordo rosso indica diritto di precedenza", urdu:"Tikona nishaan pehle jane ka haq deta hai", ans:"F", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Italian_traffic_signs_-_dare_precedenza.svg/400px-Italian_traffic_signs_-_dare_precedenza.svg.png"},
-{ita:"Il segnale di STOP obbliga a fermarsi e dare precedenza", urdu:"STOP par rukna aur rasta dena zaroori hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Italian_traffic_signs_-_stop.svg/400px-Italian_traffic_signs_-_stop.svg.png"},
-{ita:"Il segnale circolare blu con barra rossa indica divieto di sosta", urdu:"Neela gol nishaan gari khari karna mana hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Italian_traffic_signs_-_divieto_di_sosta.svg/400px-Italian_traffic_signs_-_divieto_di_sosta.svg.png"},
-{ita:"Il segnale circolare rosso con numero 50 indica limite massimo 50 km/h", urdu:"Laal gol nishaan 50 speed limit hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Italian_traffic_signs_-_limite_massimo_di_velocit%C3%A0_50.svg/400px-Italian_traffic_signs_-_limite_massimo_di_velocit%C3%A0_50.svg.png"},
-{ita:"Il segnale indica senso vietato - divieto di accesso", urdu:"Is raste me dakhil hona mana hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Italian_traffic_signs_-_senso_vietato.svg/400px-Italian_traffic_signs_-_senso_vietato.svg.png"},
-];
-for(let i=qs.length;i<30;i++){ qs.push({ita:"Domanda "+(i+1)+" - E' obbligatorio dare precedenza ai pedoni sulle strisce", urdu:"Zebra crossing par paidal ko rasta dena zaroori hai? (Q "+(i+1)+")", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Italian_traffic_signs_-_dare_precedenza.svg/200px-Italian_traffic_signs_-_dare_precedenza.svg.png"}) }
-
-let cur=0, time=20*60, risp=Array(30).fill(null);
-function startExam(){
- document.getElementById('entry').style.display='none';
- document.getElementById('exam').style.display='block';
- render();
- setInterval(()=>{
-  let m=Math.floor(time/60), s=time%60;
-  document.getElementById('timer').innerText=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
-  if(time<=0) riepilogo(); time--;
- },1000);
-}
-function render(){
- document.getElementById('qCount').innerText="Domanda "+(cur+1)+" di 30";
- document.getElementById('qIta').innerText=qs[cur].ita;
- document.getElementById('qUrdu').innerText=qs[cur].urdu;
- document.getElementById('qImg').src=qs[cur].img;
- document.getElementById('bV').className=risp[cur]=='V'?'sel':'';
- document.getElementById('bF').className=risp[cur]=='F'?'sel':'';
- let nav=document.getElementById('nav'); nav.innerHTML="";
- let st=Math.floor(cur/10)*10;
- for(let i=st;i<Math.min(st+10,30);i++){
-  let d=document.createElement('div'); d.innerText=i+1;
-  if(i==cur) d.className='active';
-  if(risp[i]) d.className+=' '+(risp[i]==qs[i].ans?'ok':'no');
-  d.onclick=()=>{cur=i; render();}; nav.appendChild(d);
- }
-}
-function answer(v){ risp[cur]=v; render(); if(cur<29){cur++; setTimeout(render,250);} }
-function next(){ if(cur<29){cur++; render();} }
-function prev(){ if(cur>0){cur--; render();} }
-function riepilogo(){
- let ok=0; for(let i=0;i<30;i++) if(risp[i]==qs[i].ans) ok++;
- alert("RIEPILOGO B - 30Q / 20Min\nSahi: "+ok+" / 30\nGhalat: "+(30-ok)+"\n"+((30-ok)<=3?"✅ PROMOSSO!":"❌ BOCCIATO!"));
-}
-</script>
-</body>
-</html>
+*{box-sizing:border-box; font-family:Arial}
+body{margin:0; background:#d9e4d9; display:flex; justify-content:center}
+#app{width:100%; max-width:1000px; background:#eef3ee; border:1px solid #aaa; min-height:100vh}
+.header{display:flex; background:#eef3ee; border-bottom:1px solid #bbb}
+.header div{flex:1; padding:8px; text-align:center; font-size:13px; border-right:1px solid #bbb; background:#f5f5f5}
+.header div.active{background:white; font-weight:bold; border-bottom:2px solid #000}
+.nums{display:flex; background:white; border-bottom:1px solid #bbb}
+.nums div{flex:1; text-align:center; padding:10px 0; font-weight:bold; border-right:1px solid #ddd; background:#f9f9f9; cursor:pointer}
+.nums div.active{background:white; border-bottom:3px solid #000}
+.subnums{display:flex; background:#e0e0e0; font-size:10px}
+.subnums div{flex:1; text-align:center; padding:4px 0; border-right:1px solid #ccc; cursor:pointer}
+.subnums div.active{background:white; font-weight:bold}
+.main{display:flex; background:white; min-height:320px}
+.left{width:32%; border-right:1px solid #bbb; display:flex; align-items:center; justify-content:center; padding:15px; background:white}
+.left img{max-width:100%; max-height:220px}
+.right{width:68%; padding:15px; position:relative}
+.right .numR{position:absolute; right:10px; top:10px; font-weight:bold; font-size:20px; color:#555}
+.q{font-size:16px; margin-top:30px}
+.urdu{color:#b00000; background:#fff0f0; padding:6px; border-radius:5px; margin-top:10px; font-weight:bold; font-size:13px}
+.footer{display:flex; align-items:center; padding:10px; background:#e8efe8; border-top:1px solid #bbb}
+.vf{display:flex; gap:15px; margin:auto}
+.vf button{width:65px; height:65px; border:2px solid #333; background:white; border-radius:4px; font-size:0; position:relative; cursor:pointer}
+.vf button::after{content:"V"; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:40px; border:2px solid #333; border-radius:50%; width:45px; height:45px; line-height:45px}
+.vf button#btnF::after{content:"F"}
+.vf button.sel{background:#c8e6c9; border-color:green}
+.vf button.sel::after{border-color:green}
