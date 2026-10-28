@@ -69,7 +69,7 @@ function render(){
   document.getElementById('bV').className=risp[cur]=='V'?'sel':'';
   document.getElementById('bF').className=risp[cur]=='F'?'sel':'';
 }
-function ans(v){ risp[cur]=v; render(); if(cur<29){cur++; setTimeout(render,250);} }
+function ans(v){ risp[cur]=v; render(); }
 function next(){ if(cur<29){cur++; render();} }
 function prev(){ if(cur>0){cur--; render();} }
 function check(){
