@@ -5,15 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Azhar Patente B - Quiz Patente B Italiano Urdu - Azhar Udeen</title>
 <meta name="description" content="Azhar Patente B - Patente B Quiz in Italiano e Urdu - Azhar Udeen Patente B per Pakistani in Italia">
-<meta name="keywords" content="Azhar Patente B, Azhar Udeen Patente B, Patente B Urdu, Quiz Patente B, Patente B Italiano Urdu">
+<meta name="keywords" content="Azhar Patente B, Azhar Udeen Patente B, Patente B Urdu, Quiz Patente B">
 <style>
-.mono{position:absolute; top:5px; right:10px; background:gold; color:black; padding:6px 14px; border-radius:20px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:18px; border:2px solid black; z-index:999}
+.mono{position:absolute; top:5px; right:10px; background:gold; color:black; padding:6px 14px; border-radius:20px; font-weight:bold; font-size:14px; border:2px solid black; z-index:999}
 body{margin:0; font-family:Arial; background:#e8efe8}
 #box{max-width:900px; margin:auto; background:white; border:1px solid #999}
 .top{display:flex; background:#f0f0f0; border-bottom:1px solid #999}
-.top div{flex:1; padding:8px; text-align:center; border-right:1px solid #999; font-size:12px}
-.num{display:flex; background:white; border-bottom:2px solid #999}
-.num div{flex:1; padding:10px 0; text-align:center; border-right:1px solid #ddd; font-weight:bold; cursor:pointer}
+.top div{flex:1; padding:8px; text-align:center; border-right:1px solid #999; font-size:11px; cursor:pointer}
+.top div.activeT{background:#222;color:white}
+.num{display:flex; background:white; border-bottom:2px solid #999; flex-wrap:wrap}
+.num div{flex:0 0 10%; padding:10px 0; text-align:center; border-right:1px solid #ddd; font-weight:bold; cursor:pointer; box-sizing:border-box}
 .num div.active{background:#222; color:white}
 .main{display:flex}
 .left{width:38%; padding:15px; text-align:center; border-right:1px solid #999; background:white}
@@ -23,17 +24,54 @@ body{margin:0; font-family:Arial; background:#e8efe8}
 .vf{display:flex; gap:15px; justify-content:center; margin-top:25px}
 .vf button{width:70px; height:70px; font-size:32px; font-weight:bold; border:3px solid #333; border-radius:50%; background:white; cursor:pointer}
 .vf button.sel{background:#4CAF50; color:white; border-color:green}
-.foot{display:flex; padding:10px; background:#e8efe8; border-top:2px solid #999; align-items:center}
+.foot{display:flex; padding:10px; background:#e8efe8; border-top:2px solid #999; align-items:center; flex-wrap:wrap; gap:5px}
+#homePage{max-width:900px;margin:auto;background:white;min-height:90vh}
+.banner{background:white;text-align:center;border-bottom:3px solid #009246;position:relative}
+.banner img{width:100%;max-width:900px;max-height:110px;object-fit:contain;display:block;margin:auto}
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px;background:#f5faf5}
+.card{background:white;border:2px solid #009246;border-radius:15px;padding:14px 8px;text-align:center;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+.card .icon{font-size:38px}
+.card b{display:block;font-size:13px;color:#222;margin-top:5px}
+.card span{font-size:10px;color:green;font-weight:bold;display:block;margin-top:3px}
+.card.full{grid-column:1 / -1;background:linear-gradient(90deg,#009246,#00b85c);color:white;border:none}
+.card.full b{color:white;font-size:15px}
+.card.full span{color:#e0ffe0}
+.page{display:none;max-width:900px;margin:auto;background:white;min-height:90vh;padding:12px;box-sizing:border-box}
+.back{ background:#ce2b37;color:white;border:none;padding:7px 14px;border-radius:20px;cursor:pointer;margin-bottom:10px}
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:600px){.cap-grid{grid-template-columns:1fr}}
+.cap-btn{background:white;border:1.5px solid #009246;border-radius:10px;padding:10px;cursor:pointer;text-align:left}
+.cap-btn b{color:#ce2b37;font-size:12px;display:block}
+.cap-btn span{font-size:11px;display:block;color:#333}
+.arg-box{border:1px solid #ccc;border-radius:10px;padding:10px;margin-bottom:10px;background:#fffff5}
+.bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;max-width:900px;margin:auto;background:white;border-top:2px solid #009246;z-index:1000}
+.bottom-nav div{flex:1;text-align:center;padding:8px;font-size:11px;cursor:pointer}
+.bottom-nav div.activeN{color:#009246;font-weight:bold}
 </style>
 </head>
 <body>
-<div style="background:white; text-align:center; border-bottom:3px solid green;"><img src="bg.jpg" style="width:100%; max-width:900px; max-height:110px; object-fit:contain; display:block; margin:auto;"></div>
-<div class="mono">AZHAR UDEEN - Patente B</div>
+<div style="position:fixed;bottom:0;left:0;right:0;height:55px;background:white;z-index:999"></div>
+
+<div id="homePage">
+<div class="banner"><img src="bg.jpg" alt="Azhar Patente B"><div class="mono">AZHAR UDEEN</div></div>
+<div style="background:#009246;color:white;text-align:center;padding:8px;font-weight:bold;font-size:14px">AZHAR PATENTE B - 3 in 1 System - Pakistani in Italia</div>
+<div class="home-grid">
+<div class="card full" onclick="openQuiz('full')"><div class="icon">📝</div><b>Quiz Esame Reale - 30 Domande - 20 Min</b><span>Full Book - Come Motorizzazione</span></div>
+<div class="card" onclick="openPage('chapters')"><div class="icon">📚</div><b>Quiz per Capitolo</b><span>25 Capitoli - Jis me mushkil ho</span></div>
+<div class="card" onclick="openPage('argomenti')"><div class="icon">🎓</div><b>Study (Argomenti)</b><span>Topic Wise Padhai - Ita+Urdu</span></div>
+<div class="card" onclick="openPage('video')"><div class="icon">▶️</div><b>Video Lessons</b><span>Har Chapter Video</span></div>
+<div class="card" onclick="openPage('errori')"><div class="icon">❌</div><b>Practice Errors</b><span>Galat Sawal - Dobara</span></div>
+<div class="card" onclick="openPage('bookmark')"><div class="icon">🔖</div><b>Segnalibri</b><span>Saved Questions</span></div>
+</div>
+<div style="padding:10px;text-align:center;font-size:11px;color:#555">Ciao Azhar! Pronto per il tuo esame di guida? Inizia ora. 🇮🇹🇵🇰</div>
+<div style="height:70px"></div>
+</div><div id="quizPage" class="page">
+<button class="back" onclick="goHome()">← Home Wapas</button>
 <div id="box">
-<div class="top"><div>Domande 1-10</div><div>Domande 11-20</div><div>Domande 21-30</div></div>
+<div class="top"><div id="t1" class="activeT" onclick="jumpRange(0)">Domande 1-10</div><div id="t2" onclick="jumpRange(10)">Domande 11-20</div><div id="t3" onclick="jumpRange(20)">Domande 21-30</div></div>
 <div class="num" id="nums"></div>
 <div class="main">
-<div class="left"><img id="pic" src=""><div style="margin-top:12px">Timer <b id="timer" style="color:red; font-size:18px">20:00</b></div></div>
+<div class="left"><img id="pic" src=""><div style="margin-top:12px">Timer <b id="timer" style="color:red; font-size:18px">20:00</b><div id="capLabel" style="font-size:10px;color:green;margin-top:5px;font-weight:bold"></div></div></div>
 <div class="right">
 <b id="c">Domanda 1 di 30</b>
 <p id="q" style="font-weight:bold; font-size:16px; margin-top:15px"></p>
@@ -41,48 +79,61 @@ body{margin:0; font-family:Arial; background:#e8efe8}
 <div class="vf"><button id="bV" onclick="ans('V')">V</button><button id="bF" onclick="ans('F')">F</button></div>
 </div>
 </div>
-<div class="foot"><button onclick="prev()" style="padding:8px 12px">◀ Back Precedente</button><button onclick="check()" style="margin:auto; padding:8px 30px; font-weight:bold">Correggi</button><button onclick="next()" style="padding:8px 12px">Next Successiva ▶</button></div>
+<div class="foot"><button onclick="prev()" style="padding:8px 12px">◀ Precedente</button><button onclick="check()" style="margin:auto; padding:8px 20px; font-weight:bold; background:#009246;color:white;border:none;border-radius:5px">Correggi - Result</button><button onclick="next()" style="padding:8px 12px">Successiva ▶</button></div>
+</div>
+<div style="height:70px"></div>
 </div>
 
-<script>
-let qs=[
-{ita:"Il segnale raffigurato preannuncia un dosso", urdu:"Ye dosso / speed breaker ka nishaan hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='260' viewBox='0 0 300 260'><path d='M150 10 L280 230 L20 230 Z' fill='red'/><path d='M150 35 L255 210 L45 210 Z' fill='%23FFD700'/><path d='M60 190 Q110 140 150 160 Q190 180 240 190 L240 200 L60 200 Z' fill='black'/></svg>"},
-{ita:"Il segnale indica divieto di sosta", urdu:"Yahan gari khari karna mana hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><circle cx='150' cy='150' r='130' fill='%231E90FF' stroke='red' stroke-width='15'/><line x1='80' y1='80' x2='220' y2='220' stroke='red' stroke-width='15'/></svg>"},
-{ita:"Il segnale di STOP obbliga a fermarsi", urdu:"STOP par rukna zaroori hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><polygon points='150,20 270,80 270,220 150,280 30,220 30,80' fill='red'/><text x='150' y='190' font-size='90' font-weight='bold' fill='white' text-anchor='middle'>STOP</text></svg>"},
-{ita:"Il segnale raffigurato indica limite 50 km/h", urdu:"50 speed limit ka board hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><circle cx='150' cy='150' r='125' fill='white' stroke='red' stroke-width='18'/><text x='150' y='185' font-size='90' font-weight='bold' text-anchor='middle'>50</text></svg>"},
-{ita:"Il segnale indica dare precedenza", urdu:"Agli ko pehle jane do", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='260' viewBox='0 0 300 260'><path d='M150 10 L280 230 L20 230 Z' fill='white' stroke='red' stroke-width='15'/><path d='M150 60 L150 170 M100 120 L150 60 L200 120' fill='none' stroke='black' stroke-width='12'/></svg>"}
-];
-for(let i=5;i<30;i++){
-  qs.push({ita:"Domanda "+(i+1)+" - Dare precedenza ai pedoni e' obbligatorio sulle strisce", urdu:"Zebra crossing par paidal walon ko rasta dena zaroori hai? Q"+(i+1), ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='260' viewBox='0 0 300 260'><path d='M150 10 L280 230 L20 230 Z' fill='red'/><path d='M150 35 L255 210 L45 210 Z' fill='%23FFD700'/><text x='150' y='160' font-size='80' text-anchor='middle'>⚠</text></svg>"});
-}
+<div id="chapters" class="page">
+<button class="back" onclick="goHome()">← Home</button>
+<h3 style="color:#009246">📚 25 Capitoli - Jis me mushkil ho usi ka Quiz karo</h3>
+<div id="capList" class="cap-grid"></div>
+<div style="height:70px"></div>
+</div>
 
-let cur=0, time=20*60, risp=Array(30).fill(null);
-function render(){
-  document.getElementById('c').innerText="Domanda "+(cur+1)+" di 30";
-  document.getElementById('q').innerText=qs[cur].ita;
-  document.getElementById('qu').innerText=qs[cur].urdu;
-  document.getElementById('pic').src=qs[cur].img;
-  let n=document.getElementById('nums'); n.innerHTML="";
-  let start=Math.floor(cur/10)*10;
-  for(let i=start;i<Math.min(start+10,30);i++){
-    let d=document.createElement('div'); d.innerText=i+1;
-    if(i==cur) d.className='active';
-    if(risp[i]) d.style.background='#a5d6a7';
-    d.onclick=()=>{cur=i; render();};
-    n.appendChild(d);
-  }
-  document.getElementById('bV').className=risp[cur]=='V'?'sel':'';
-  document.getElementById('bF').className=risp[cur]=='F'?'sel':'';
-}
-function ans(v){ risp[cur]=v; render(); }
-function next(){ if(cur<29){cur++; render();} }
-function prev(){ if(cur>0){cur--; render();} }
-function check(){
-  let ok=0; for(let i=0;i<30;i++) if(risp[i]==qs[i].ans) ok++;
-  alert("RIEPILOGO\\n30 Domande / 20 Min\\nSahi: "+ok+" / 30\\nGhalat: "+(30-ok)+"\\n"+((30-ok)<=3?"✅ PROMOSSO!":"❌ BOCCIATO"));
-}
-setInterval(()=>{let m=Math.floor(time/60), s=time%60; document.getElementById('timer').innerText=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s); if(time>0) time--;},1000);
-render();
-</script>
-</body>
-</html>
+<div id="argomenti" class="page">
+<button class="back" onclick="goHome()">← Home</button>
+<h3 style="color:#009246">🎓 Study (Argomenti) - Topic Wise Padhai</h3>
+<div id="argList"></div>
+<div style="height:70px"></div>
+</div>
+
+<div id="video" class="page">
+<button class="back" onclick="goHome()">← Home</button>
+<h3>▶️ Video Lessons</h3>
+<div id="videoList"></div>
+<div style="height:70px"></div>
+</div>
+
+<div id="errori" class="page">
+<button class="back" onclick="goHome()">← Home</button>
+<h3>❌ Practice Errors - Galat Jawab</h3>
+<div id="errorList"><p>Abhi koi galat nahi. Quiz karo, jo galat honge wo yahan save honge.</p></div>
+<div style="height:70px"></div>
+</div>
+
+<div id="bookmark" class="page">
+<button class="back" onclick="goHome()">← Home</button>
+<h3>🔖 Segnalibri</h3>
+<p>Bookmark kiye hue sawal yahan ayenge.</p>
+<div id="bmList"></div>
+<div style="height:70px"></div>
+</div>
+
+<div class="bottom-nav">
+<div onclick="goHome()" id="nav-home" class="activeN">🏠<br>Home</div>
+<div onclick="openPage('chapters')">📚<br>Capitoli</div>
+<div onclick="openPage('argomenti')">🎓<br>Study</div>
+<div onclick="openPage('video')">▶️<br>Video</div>
+</div><script>
+const capitoli = [
+{id:1, it:"Definizioni generali - doveri nell'uso della strada", ur:"Bunyadi Qawaneen", desc:"Strada, veicolo, conducente ke buniyadi usool - Definizioni generali."},
+{id:2, it:"Segnali stradali di pericolo", ur:"Khatre Wale Ishaare", desc:"Triangolo wale khatre ke ishaare - dosso, curva, strettoia."},
+{id:3, it:"Segnali stradali di precedenza", ur:"Precedenza Ishaare", desc:"STOP, dare precedenza, diritto di precedenza - Pehle kaun jayega."},
+{id:4, it:"Segnali di divieto", ur:"Mana Karne Wale", desc:"Divieto di accesso, sorpasso, sosta - Mana karne wale gol ishaare."},
+{id:5, it:"Segnali stradali di obbligo", ur:"Lazmi Ishaare", desc:"Obbligo di direzione, rotatoria, pista ciclabile - Neelay lazmi ishaare."},
+{id:6, it:"Segnali stradali di indicazione", ur:"Rehnumai Wale", desc:"Localita, autostrada, ospedale - Information wale ishaare."},
+{id:7, it:"Pannelli integrativi", ur:"Extra Takhtiyan", desc:"Distanza, estesa, eccetto - Neeche lagne wali takhtiyan."},
+{id:8, it:"Segnali verticali complementari / Segnali di cantiere", ur:"Cantiere Ishaare", desc:"Lavori in corso, deviazioni - Construction ishaare."},
+{id:9, it:"Segnalazione semaforiche e degli agenti", ur:"Semaforo / Police", desc:"Semaforo rosso verde, vigile ke ishaare."},
+{id:10, it:"Segnali stradali orizzontali", ur
