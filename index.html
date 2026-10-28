@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Patente B - Azhar App</title>
+<title>Patente B - Azhar PK</title>
 <style>
 body{font-family:sans-serif; text-align:center; background:#eef6ff; padding:10px}
 .card{background:white; border-radius:20px; padding:15px; max-width:400px; margin:auto; box-shadow:0 5px 15px #999}
@@ -14,7 +14,7 @@ button{width:48%; padding:14px; margin:5px 1%; font-size:17px; border-radius:10p
 </head>
 <body>
 <div class="card">
-<h2 style="margin:5px">🇮🇹 Patente B - Azhar 🇵🇰</h2>
+<h2>🇮🇹 IT Patente B - Azhar PK 🇵🇰</h2>
 <img id="pic" src="">
 <p id="ita" style="font-weight:bold; font-size:18px"></p>
 <p id="urdu"></p>
@@ -26,7 +26,12 @@ button{width:48%; padding:14px; margin:5px 1%; font-size:17px; border-radius:10p
 </div>
 <script>
 let qs=[
-https://dinmazhar.github.io/ptante-b-app/];
+{img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='white'/><polygon points='140,40 260,40 320,100 320,200 260,260 140,260 80,200 80,100' fill='%23FF0000' stroke='white' stroke-width='10'/><text x='200' y='170' text-anchor='middle' font-size='60' fill='white' font-weight='900'>STOP</text></svg>", ita:"Il segnale indica STOP - Fermarsi e dare precedenza", urdu:"Is nishaan ka matlab hai - Ruk jao aur rasta do", ans:true},
+{img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='white'/><circle cx='200' cy='150' r='100' fill='none' stroke='%230066CC' stroke-width='15'/><line x1='130' y1='150' x2='270' y2='150' stroke='%230066CC' stroke-width='15'/></svg>", ita:"Il segnale indica divieto di sosta", urdu:"Yahan gari khari karna mana hai", ans:true},
+{img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='white'/><circle cx='200' cy='150' r='90' fill='white' stroke='red' stroke-width='12'/><text x='200' y='175' text-anchor='middle' font-size='70' fill='black' font-weight='900'>50</text></svg>", ita:"Il limite di velocità in città è 50 km/h", urdu:"Sheher me speed limit 50 hai - Ye sahi hai", ans:true},
+{img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='white'/><circle cx='200' cy='150' r='90' fill='white' stroke='red' stroke-width='12'/><line x1='140' y1='150' x2='260' y2='150' stroke='red' stroke-width='12'/></svg>", ita:"Il segnale indica senso vietato", urdu:"Is raste par jana mana hai", ans:true},
+{img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='white'/><polygon points='200,50 260,150 200,250 140,150' fill='white' stroke='black' stroke-width='8'/><polygon points='200,70 240,150 200,230 160,150' fill='black'/></svg>", ita:"Il segnale indica diritto di precedenza", urdu:"Aapko pehle jane ka haq hai", ans:true}
+];
 let i=0;
 function loadQ(){
  document.getElementById('pic').src=qs[i].img;
