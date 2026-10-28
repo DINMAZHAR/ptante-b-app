@@ -2,31 +2,75 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Patente B - Finale 30Q 20Min</title>
+<title>Patente B 30Q</title>
 <style>
-*{box-sizing:border-box; font-family:Arial}
-body{margin:0; background:#d9e4d9; display:flex; justify-content:center}
-#app{width:100%; max-width:1000px; background:#eef3ee; border:1px solid #aaa; min-height:100vh}
-.header{display:flex; background:#eef3ee; border-bottom:1px solid #bbb}
-.header div{flex:1; padding:8px; text-align:center; font-size:13px; border-right:1px solid #bbb; background:#f5f5f5}
-.header div.active{background:white; font-weight:bold; border-bottom:2px solid #000}
-.nums{display:flex; background:white; border-bottom:1px solid #bbb}
-.nums div{flex:1; text-align:center; padding:10px 0; font-weight:bold; border-right:1px solid #ddd; background:#f9f9f9; cursor:pointer}
-.nums div.active{background:white; border-bottom:3px solid #000}
-.subnums{display:flex; background:#e0e0e0; font-size:10px}
-.subnums div{flex:1; text-align:center; padding:4px 0; border-right:1px solid #ccc; cursor:pointer}
-.subnums div.active{background:white; font-weight:bold}
-.main{display:flex; background:white; min-height:320px}
-.left{width:32%; border-right:1px solid #bbb; display:flex; align-items:center; justify-content:center; padding:15px; background:white}
-.left img{max-width:100%; max-height:220px}
-.right{width:68%; padding:15px; position:relative}
-.right .numR{position:absolute; right:10px; top:10px; font-weight:bold; font-size:20px; color:#555}
-.q{font-size:16px; margin-top:30px}
-.urdu{color:#b00000; background:#fff0f0; padding:6px; border-radius:5px; margin-top:10px; font-weight:bold; font-size:13px}
-.footer{display:flex; align-items:center; padding:10px; background:#e8efe8; border-top:1px solid #bbb}
-.vf{display:flex; gap:15px; margin:auto}
-.vf button{width:65px; height:65px; border:2px solid #333; background:white; border-radius:4px; font-size:0; position:relative; cursor:pointer}
-.vf button::after{content:"V"; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:40px; border:2px solid #333; border-radius:50%; width:45px; height:45px; line-height:45px}
-.vf button#btnF::after{content:"F"}
-.vf button.sel{background:#c8e6c9; border-color:green}
-.vf button.sel::after{border-color:green}
+body{margin:0; font-family:Arial; background:#e8efe8}
+#box{max-width:900px; margin:auto; background:white; border:1px solid #aaa}
+.top{display:flex; background:#f0f0f0; border-bottom:1px solid #aaa}
+.top div{flex:1; padding:8px; text-align:center; border-right:1px solid #aaa; font-size:13px}
+.num{display:flex; background:white; border-bottom:1px solid #aaa}
+.num div{flex:1; padding:10px 0; text-align:center; border-right:1px solid #ddd; font-weight:bold; cursor:pointer}
+.num div.active{background:#333; color:white}
+.main{display:flex}
+.left{width:35%; border-right:1px solid #aaa; padding:20px; text-align:center; background:white}
+.left img{width:90%; max-height:220px}
+.right{width:65%; padding:15px}
+.urdu{color:red; background:#fff0f0; padding:6px; margin-top:10px; font-weight:bold; font-size:13px}
+.foot{display:flex; padding:10px; background:#e8efe8; border-top:1px solid #aaa; align-items:center}
+.vf{margin:auto; display:flex; gap:10px}
+.vf button{width:60px; height:60px; font-size:30px; font-weight:bold; border:2px solid #333; background:white; border-radius:50%}
+.vf button.sel{background:#4CAF50; color:white}
+</style>
+</head>
+<body>
+<div id="box">
+<div class="top"><div>Domande 1-10</div><div>Domande 11-20</div><div>Domande 21-30</div></div>
+<div class="num" id="nums"></div>
+<div class="main">
+<div class="left"><img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/6/65/Italian_traffic_signs_-_dosso.svg"></div>
+<div class="right">
+<b id="count">Domanda 1 di 30</b> <span style="float:right">Timer <b id="timer">20:00</b></span>
+<p id="ita" style="font-weight:bold; margin-top:20px">Il segnale raffigurato preannuncia lavori in corso</p>
+<div class="urdu" id="urdu">Ye nishaan aage kaam chal raha hai batata hai - Dosso wala</div>
+<div style="margin-top:30px; text-align:center">
+<button onclick="ans('V')" id="bV" style="width:70px; height:70px; font-size:30px; border-radius:50%; border:2px solid">V</button>
+<button onclick="ans('F')" id="bF" style="width:70px; height:70px; font-size:30px; border-radius:50%; border:2px solid">F</button>
+</div>
+</div>
+</div>
+<div class="foot">
+<button onclick="prev()">◀ Precedente</button>
+<div style="margin:auto"><button onclick="check()" style="padding:8px 30px">Correggi</button></div>
+<button onclick="next()">Successiva ▶</button>
+</div>
+</div>
+
+<script>
+let qs=[
+{ita:"Il segnale raffigurato preannuncia un dosso", urdu:"Ye dosso / speed breaker ka nishaan hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/6/65/Italian_traffic_signs_-_dosso.svg"},
+{ita:"Il segnale indica divieto di sosta", urdu:"Gari khari karna mana hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/a/a5/Italian_traffic_signs_-_divieto_di_sosta.svg"},
+{ita:"Il segnale di STOP obbliga a fermarsi", urdu:"STOP par rukna zaroori hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/9/91/Italian_traffic_signs_-_stop.svg"},
+{ita:"Il limite in citta e' 50 km/h", urdu:"Sheher me 50 speed limit", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/7/7e/Italian_traffic_signs_-_limite_massimo_di_velocit%C3%A0_50.svg"},
+{ita:"Il segnale indica diritto di precedenza", urdu:"Pehle jane ka haq", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/4/4a/Italian_traffic_signs_-_diritto_di_precedenza.svg"},
+];
+for(let i=5;i<30;i++) qs.push({ita:"Domanda "+(i+1)+" - Dare precedenza ai pedoni e' obbligatorio", urdu:"Pedestrian ko rasta dena zaroori Q"+(i+1), ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/2/2d/Italian_traffic_signs_-_dare_precedenza.svg"});
+
+let cur=0, time=20*60, ansArr=Array(30).fill(null);
+function render(){
+ document.getElementById('count').innerText="Domanda "+(cur+1)+" di 30";
+ document.getElementById('ita').innerText=qs[cur].ita;
+ document.getElementById('urdu').innerText=qs[cur].urdu;
+ document.getElementById('pic').src=qs[cur].img;
+ let n=document.getElementById('nums'); n.innerHTML="";
+ for(let i=0;i<10;i++){ let d=document.createElement('div'); let idx=Math.floor(cur/10)*10+i; if(idx<30){ d.innerText=idx+1; if(idx==cur) d.className='active'; if(ansArr[idx]) d.style.background='#a5d6a7'; d.onclick=()=>{cur=idx; render();}; n.appendChild(d);} }
+ document.getElementById('bV').className=ansArr[cur]=='V'?'sel':''; document.getElementById('bF').className=ansArr[cur]=='F'?'sel':'';
+}
+function ans(v){ ansArr[cur]=v; render(); if(cur<29) cur++; setTimeout(render,200); }
+function next(){ if(cur<29){cur++; render();} }
+function prev(){ if(cur>0){cur--; render();} }
+function check(){ let ok=0; for(let i=0;i<30;i++) if(ansArr[i]==qs[i].ans) ok++; alert("Sahi: "+ok+" / 30\nGhalat: "+(30-ok)+"\n"+((30-ok)<=3?"PROMOSSO!":"BOCCIATO")); }
+setInterval(()=>{ let m=Math.floor(time/60), s=time%60; document.getElementById('timer').innerText=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s); if(time>0) time--; },1000);
+render();
+</script>
+</body>
+</html>
