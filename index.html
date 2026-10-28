@@ -1,139 +1,121 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
+<html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Azhar Patente B - Quiz Patente B Italiano Urdu - Azhar Udeen</title>
-<meta name="description" content="Azhar Patente B - Patente B Quiz in Italiano e Urdu - Azhar Udeen Patente B per Pakistani in Italia">
-<meta name="keywords" content="Azhar Patente B, Azhar Udeen Patente B, Patente B Urdu, Quiz Patente B">
 <style>
-.mono{position:absolute; top:5px; right:10px; background:gold; color:black; padding:6px 14px; border-radius:20px; font-weight:bold; font-size:14px; border:2px solid black; z-index:999}
-body{margin:0; font-family:Arial; background:#e8efe8}
-#box{max-width:900px; margin:auto; background:white; border:1px solid #999}
-.top{display:flex; background:#f0f0f0; border-bottom:1px solid #999}
-.top div{flex:1; padding:8px; text-align:center; border-right:1px solid #999; font-size:11px; cursor:pointer}
-.top div.activeT{background:#222;color:white}
-.num{display:flex; background:white; border-bottom:2px solid #999; flex-wrap:wrap}
-.num div{flex:0 0 10%; padding:10px 0; text-align:center; border-right:1px solid #ddd; font-weight:bold; cursor:pointer; box-sizing:border-box}
-.num div.active{background:#222; color:white}
-.main{display:flex}
-.left{width:38%; padding:15px; text-align:center; border-right:1px solid #999; background:white}
-.left img{width:95%; max-height:230px}
-.right{width:62%; padding:12px}
-.urdu{color:#b00000; background:#fff0f0; padding:6px; margin-top:10px; font-weight:bold; font-size:13px; border-radius:5px}
-.vf{display:flex; gap:15px; justify-content:center; margin-top:25px}
-.vf button{width:70px; height:70px; font-size:32px; font-weight:bold; border:3px solid #333; border-radius:50%; background:white; cursor:pointer}
-.vf button.sel{background:#4CAF50; color:white; border-color:green}
-.foot{display:flex; padding:10px; background:#e8efe8; border-top:2px solid #999; align-items:center; flex-wrap:wrap; gap:5px}
-#homePage{max-width:900px;margin:auto;background:white;min-height:90vh}
-.banner{background:white;text-align:center;border-bottom:3px solid #009246;position:relative}
-.banner img{width:100%;max-width:900px;max-height:110px;object-fit:contain;display:block;margin:auto}
-.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px;background:#f5faf5}
-.card{background:white;border:2px solid #009246;border-radius:15px;padding:14px 8px;text-align:center;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-.card .icon{font-size:38px}
-.card b{display:block;font-size:13px;color:#222;margin-top:5px}
-.card span{font-size:10px;color:green;font-weight:bold;display:block;margin-top:3px}
-.card.full{grid-column:1 / -1;background:linear-gradient(90deg,#009246,#00b85c);color:white;border:none}
-.card.full b{color:white;font-size:15px}
+.mono{position:absolute;top:5px;right:10px;background:gold;color:#000;padding:5px 12px;border-radius:20px;font-weight:bold;font-size:12px;border:2px solid #000;z-index:999}
+body{margin:0;font-family:Arial;background:#e8efe8}
+#box{max-width:900px;margin:auto;background:#fff;border:1px solid #999}
+.top{display:flex;background:#f0f0f0;border-bottom:1px solid #999}
+.top div{flex:1;padding:8px;text-align:center;border-right:1px solid #999;font-size:11px;cursor:pointer}
+.top div.activeT{background:#222;color:#fff}
+.num{display:flex;background:#fff;border-bottom:2px solid #999;flex-wrap:wrap}
+.num div{flex:0 0 10%;padding:10px 0;text-align:center;border-right:1px solid #ddd;font-weight:bold;cursor:pointer}
+.num div.active{background:#222;color:#fff}
+.main{display:flex}.left{width:38%;padding:10px;text-align:center;border-right:1px solid #999}
+.right{width:62%;padding:10px}
+.urdu{color:#b00000;background:#fff0f0;padding:6px;margin-top:8px;font-weight:bold;font-size:12px;border-radius:5px}
+.vf{display:flex;gap:15px;justify-content:center;margin-top:20px}
+.vf button{width:65px;height:65px;font-size:30px;font-weight:bold;border:3px solid #333;border-radius:50%;background:#fff;cursor:pointer}
+.vf button.sel{background:#4CAF50;color:#fff;border-color:green}
+.foot{display:flex;padding:8px;background:#e8efe8;border-top:2px solid #999;align-items:center}
+#homePage{max-width:900px;margin:auto;background:#fff;min-height:90vh}
+.banner{background:#fff;text-align:center;border-bottom:3px solid #009246;position:relative}
+.banner img{width:100%;max-width:900px;max-height:100px;object-fit:contain;display:block;margin:auto}
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px;background:#f5faf5}
+.card{background:#fff;border:2px solid #009246;border-radius:12px;padding:12px 6px;text-align:center;cursor:pointer}
+.card b{display:block;font-size:12px;color:#222;margin-top:4px}
+.card span{font-size:10px;color:green;font-weight:bold;display:block}
+.card.full{grid-column:1/-1;background:#009246;color:#fff;border:none}
+.card.full b{color:#fff;font-size:14px}
 .card.full span{color:#e0ffe0}
-.page{display:none;max-width:900px;margin:auto;background:white;min-height:90vh;padding:12px;box-sizing:border-box}
-.back{ background:#ce2b37;color:white;border:none;padding:7px 14px;border-radius:20px;cursor:pointer;margin-bottom:10px}
+.page{display:none;max-width:900px;margin:auto;background:#fff;min-height:90vh;padding:10px;box-sizing:border-box}
+.back{background:#ce2b37;color:#fff;border:none;padding:6px 12px;border-radius:20px;cursor:pointer;margin-bottom:8px}
 .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-@media(max-width:600px){.cap-grid{grid-template-columns:1fr}}
-.cap-btn{background:white;border:1.5px solid #009246;border-radius:10px;padding:10px;cursor:pointer;text-align:left}
-.cap-btn b{color:#ce2b37;font-size:12px;display:block}
-.cap-btn span{font-size:11px;display:block;color:#333}
-.arg-box{border:1px solid #ccc;border-radius:10px;padding:10px;margin-bottom:10px;background:#fffff5}
-.bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;max-width:900px;margin:auto;background:white;border-top:2px solid #009246;z-index:1000}
-.bottom-nav div{flex:1;text-align:center;padding:8px;font-size:11px;cursor:pointer}
+.cap-btn{background:#fff;border:1.5px solid #009246;border-radius:8px;padding:8px;cursor:pointer;text-align:left}
+.cap-btn b{color:#ce2b37;font-size:11px;display:block}
+.cap-btn span{font-size:10px;color:#333;display:block}
+.arg-box{border:1px solid #ccc;border-radius:8px;padding:8px;margin-bottom:8px;background:#fffff5}
+.bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;max-width:900px;margin:auto;background:#fff;border-top:2px solid #009246;z-index:1000}
+.bottom-nav div{flex:1;text-align:center;padding:6px;font-size:10px;cursor:pointer}
 .bottom-nav div.activeN{color:#009246;font-weight:bold}
-</style>
-</head>
-<body>
-<div style="position:fixed;bottom:0;left:0;right:0;height:55px;background:white;z-index:999"></div>
-
+</style></head><body>
 <div id="homePage">
-<div class="banner"><img src="bg.jpg" alt="Azhar Patente B"><div class="mono">AZHAR UDEEN</div></div>
-<div style="background:#009246;color:white;text-align:center;padding:8px;font-weight:bold;font-size:14px">AZHAR PATENTE B - 3 in 1 System - Pakistani in Italia</div>
+<div class="banner"><img src="bg.jpg"><div class="mono">AZHAR UDEEN</div></div>
+<div style="background:#009246;color:#fff;text-align:center;padding:6px;font-weight:bold;font-size:12px">AZHAR PATENTE B - 3 in 1 System - Pakistani in Italia</div>
 <div class="home-grid">
-<div class="card full" onclick="openQuiz('full')"><div class="icon">📝</div><b>Quiz Esame Reale - 30 Domande - 20 Min</b><span>Full Book - Come Motorizzazione</span></div>
-<div class="card" onclick="openPage('chapters')"><div class="icon">📚</div><b>Quiz per Capitolo</b><span>25 Capitoli - Jis me mushkil ho</span></div>
-<div class="card" onclick="openPage('argomenti')"><div class="icon">🎓</div><b>Study (Argomenti)</b><span>Topic Wise Padhai - Ita+Urdu</span></div>
-<div class="card" onclick="openPage('video')"><div class="icon">▶️</div><b>Video Lessons</b><span>Har Chapter Video</span></div>
-<div class="card" onclick="openPage('errori')"><div class="icon">❌</div><b>Practice Errors</b><span>Galat Sawal - Dobara</span></div>
-<div class="card" onclick="openPage('bookmark')"><div class="icon">🔖</div><b>Segnalibri</b><span>Saved Questions</span></div>
-</div>
-<div style="padding:10px;text-align:center;font-size:11px;color:#555">Ciao Azhar! Pronto per il tuo esame di guida? Inizia ora. 🇮🇹🇵🇰</div>
-<div style="height:70px"></div>
-</div><div id="quizPage" class="page">
-<button class="back" onclick="goHome()">← Home Wapas</button>
+<div class="card full" onclick="openQuiz('full')"><div style="font-size:30px">📝</div><b>Quiz Esame Reale - 30 Domande - 20 Min</b><span>Full Book - Come Motorizzazione</span></div>
+<div class="card" onclick="openPage('chapters')"><div style="font-size:28px">📚</div><b>Quiz per Capitolo</b><span>25 Capitoli</span></div>
+<div class="card" onclick="openPage('argomenti')"><div style="font-size:28px">🎓</div><b>Study (Argomenti)</b><span>Topic Wise - Ita+Urdu</span></div>
+<div class="card" onclick="openPage('video')"><div style="font-size:28px">▶️</div><b>Video Lessons</b><span>Har Chapter Video</span></div>
+<div class="card" onclick="openPage('errori')"><div style="font-size:28px">❌</div><b>Practice Errors</b><span>Galat Sawal</span></div>
+<div class="card" onclick="openPage('bookmark')"><div style="font-size:28px">🔖</div><b>Segnalibri</b><span>Saved Q</span></div>
+</div><div style="height:60px"></div></div>
+
+<div id="quizPage" class="page">
+<button class="back" onclick="goHome()">← Home</button>
 <div id="box">
-<div class="top"><div id="t1" class="activeT" onclick="jumpRange(0)">Domande 1-10</div><div id="t2" onclick="jumpRange(10)">Domande 11-20</div><div id="t3" onclick="jumpRange(20)">Domande 21-30</div></div>
+<div class="top"><div id="t1" class="activeT" onclick="jumpRange(0)">1-10</div><div id="t2" onclick="jumpRange(10)">11-20</div><div id="t3" onclick="jumpRange(20)">21-30</div></div>
 <div class="num" id="nums"></div>
-<div class="main">
-<div class="left"><img id="pic" src=""><div style="margin-top:12px">Timer <b id="timer" style="color:red; font-size:18px">20:00</b><div id="capLabel" style="font-size:10px;color:green;margin-top:5px;font-weight:bold"></div></div></div>
-<div class="right">
-<b id="c">Domanda 1 di 30</b>
-<p id="q" style="font-weight:bold; font-size:16px; margin-top:15px"></p>
-<div class="urdu" id="qu"></div>
-<div class="vf"><button id="bV" onclick="ans('V')">V</button><button id="bF" onclick="ans('F')">F</button></div>
-</div>
-</div>
-<div class="foot"><button onclick="prev()" style="padding:8px 12px">◀ Precedente</button><button onclick="check()" style="margin:auto; padding:8px 20px; font-weight:bold; background:#009246;color:white;border:none;border-radius:5px">Correggi - Result</button><button onclick="next()" style="padding:8px 12px">Successiva ▶</button></div>
-</div>
-<div style="height:70px"></div>
-</div>
+<div class="main"><div class="left"><img id="pic" src="https://via.placeholder.com/200x120?text=Segnale"><div style="margin-top:8px">Timer <b id="timer" style="color:red">20:00</b><div id="capLabel" style="font-size:9px;color:green;font-weight:bold"></div></div></div>
+<div class="right"><b id="c">Domanda 1 di 30</b><p id="q" style="font-weight:bold;font-size:14px;margin-top:10px"></p><div class="urdu" id="qu"></div>
+<div class="vf"><button id="bV" onclick="ans('V')">V</button><button id="bF" onclick="ans('F')">F</button></div></div></div>
+<div class="foot"><button onclick="prev()">◀ Prev</button><button onclick="check()" style="margin:auto;padding:6px 15px;background:#009246;color:#fff;border:none;border-radius:5px;font-weight:bold">Correggi</button><button onclick="next()">Next ▶</button></div>
+</div><div style="height:60px"></div></div>
 
-<div id="chapters" class="page">
-<button class="back" onclick="goHome()">← Home</button>
-<h3 style="color:#009246">📚 25 Capitoli - Jis me mushkil ho usi ka Quiz karo</h3>
-<div id="capList" class="cap-grid"></div>
-<div style="height:70px"></div>
-</div>
+<div id="chapters" class="page"><button class="back" onclick="goHome()">← Home</button><h3 style="color:#009246;font-size:14px">📚 25 Capitoli</h3><div id="capList" class="cap-grid"></div><div style="height:60px"></div></div>
+<div id="argomenti" class="page"><button class="back" onclick="goHome()">← Home</button><h3 style="color:#009246;font-size:14px">🎓 Study (Argomenti)</h3><div id="argList"></div><div style="height:60px"></div></div>
+<div id="video" class="page"><button class="back" onclick="goHome()">← Home</button><h3>▶️ Video</h3><div id="videoList"></div><div style="height:60px"></div></div>
+<div id="errori" class="page"><button class="back" onclick="goHome()">← Home</button><h3>❌ Errors</h3><div id="errorList"></div><div style="height:60px"></div></div>
+<div id="bookmark" class="page"><button class="back" onclick="goHome()">← Home</button><h3>🔖 Bookmark</h3><div id="bmList"></div><div style="height:60px"></div></div>
 
-<div id="argomenti" class="page">
-<button class="back" onclick="goHome()">← Home</button>
-<h3 style="color:#009246">🎓 Study (Argomenti) - Topic Wise Padhai</h3>
-<div id="argList"></div>
-<div style="height:70px"></div>
-</div>
-
-<div id="video" class="page">
-<button class="back" onclick="goHome()">← Home</button>
-<h3>▶️ Video Lessons</h3>
-<div id="videoList"></div>
-<div style="height:70px"></div>
-</div>
-
-<div id="errori" class="page">
-<button class="back" onclick="goHome()">← Home</button>
-<h3>❌ Practice Errors - Galat Jawab</h3>
-<div id="errorList"><p>Abhi koi galat nahi. Quiz karo, jo galat honge wo yahan save honge.</p></div>
-<div style="height:70px"></div>
-</div>
-
-<div id="bookmark" class="page">
-<button class="back" onclick="goHome()">← Home</button>
-<h3>🔖 Segnalibri</h3>
-<p>Bookmark kiye hue sawal yahan ayenge.</p>
-<div id="bmList"></div>
-<div style="height:70px"></div>
-</div>
-
-<div class="bottom-nav">
-<div onclick="goHome()" id="nav-home" class="activeN">🏠<br>Home</div>
-<div onclick="openPage('chapters')">📚<br>Capitoli</div>
-<div onclick="openPage('argomenti')">🎓<br>Study</div>
-<div onclick="openPage('video')">▶️<br>Video</div>
-</div><script>
-const capitoli = [
-{id:1, it:"Definizioni generali - doveri nell'uso della strada", ur:"Bunyadi Qawaneen", desc:"Strada, veicolo, conducente ke buniyadi usool - Definizioni generali."},
-{id:2, it:"Segnali stradali di pericolo", ur:"Khatre Wale Ishaare", desc:"Triangolo wale khatre ke ishaare - dosso, curva, strettoia."},
-{id:3, it:"Segnali stradali di precedenza", ur:"Precedenza Ishaare", desc:"STOP, dare precedenza, diritto di precedenza - Pehle kaun jayega."},
-{id:4, it:"Segnali di divieto", ur:"Mana Karne Wale", desc:"Divieto di accesso, sorpasso, sosta - Mana karne wale gol ishaare."},
-{id:5, it:"Segnali stradali di obbligo", ur:"Lazmi Ishaare", desc:"Obbligo di direzione, rotatoria, pista ciclabile - Neelay lazmi ishaare."},
-{id:6, it:"Segnali stradali di indicazione", ur:"Rehnumai Wale", desc:"Localita, autostrada, ospedale - Information wale ishaare."},
-{id:7, it:"Pannelli integrativi", ur:"Extra Takhtiyan", desc:"Distanza, estesa, eccetto - Neeche lagne wali takhtiyan."},
-{id:8, it:"Segnali verticali complementari / Segnali di cantiere", ur:"Cantiere Ishaare", desc:"Lavori in corso, deviazioni - Construction ishaare."},
-{id:9, it:"Segnalazione semaforiche e degli agenti", ur:"Semaforo / Police", desc:"Semaforo rosso verde, vigile ke ishaare."},
-{id:10, it:"Segnali stradali orizzontali", ur
+<div class="bottom-nav"><div onclick="goHome()" id="nav-home" class="activeN">🏠<br>Home</div><div onclick="openPage('chapters')">📚<br>Capitoli</div><div onclick="openPage('argomenti')">🎓<br>Study</div><div onclick="openPage('video')">▶️<br>Video</div></div><script>
+var capitoli=[
+{id:1,it:"Definizioni generali",ur:"Bunyadi Qawaneen",d:"Strada, veicolo, conducente"},
+{id:2,it:"Segnali di pericolo",ur:"Khatre Wale",d:"Triangolo wale ishaare - dosso, curva"},
+{id:3,it:"Segnali di precedenza",ur:"Precedenza",d:"STOP, dare precedenza"},
+{id:4,it:"Segnali di divieto",ur:"Mana Wale",d:"Divieto di sosta, accesso"},
+{id:5,it:"Segnali di obbligo",ur:"Lazmi",d:"Direzione obbligatoria"},
+{id:6,it:"Segnali di indicazione",ur:"Rehnumai",d:"Ospedale, autostrada"},
+{id:7,it:"Pannelli integrativi",ur:"Extra Takhti",d:"Distanza, estesa"},
+{id:8,it:"Segnali cantiere",ur:"Cantiere",d:"Lavori in corso"},
+{id:9,it:"Semafori e vigile",ur:"Semaforo",d:"Rosso, verde, vigile"},
+{id:10,it:"Segnali orizzontali",ur:"Zameen Nishaan",d:"Strisce, zebrate"},
+{id:11,it:"Limiti velocita",ur:"Raftar Limit",d:"50, 90, 110, 130"},
+{id:12,it:"Distanza sicurezza",ur:"Fasla",d:"2 secondi regola"},
+{id:13,it:"Circolazione veicoli",ur:"Chalane Usool",d:"Destra, corsie"},
+{id:14,it:"Precedenza incroci",ur:"Chowk",d:"Destra, ambulanza"},
+{id:15,it:"Sorpasso",ur:"Overtake",d:"Sinistra se overtake"},
+{id:16,it:"Fermata e sosta",ur:"Parking",d:"Sosta, strisce blu"},
+{id:17,it:"Norme varie",ur:"Mutafarriq",d:"Cellulare, cinture"},
+{id:18,it:"Luci e spie",ur:"Light Horn",d:"Anabbaglianti, abbaglianti"},
+{id:19,it:"Cinture e casco",ur:"Belt Helmet",d:"Cintura, bache kursi"},
+{id:20,it:"Patenti e documenti",ur:"Kaghzat",d:"Patente, punti, multe"},
+{id:21,it:"Prevenire incidenti",ur:"Hadsa Bachao",d:"Come evitare incidenti"},
+{id:22,it:"Alcool e primo soccorso",ur:"Nasha First Aid",d:"0.5 alcool, primo soccorso"},
+{id:23,it:"RCA Assicurazione",ur:"Bima",d:"RCA obbligatoria"},
+{id:24,it:"Consumi e ambiente",ur:"Petrol Mahol",d:"Risparmio, inquinamento"},
+{id:25,it:"Veicolo manutenzione",ur:"Gaari Purze",d:"Motore, freni, gomme"}
+];
+var qs=[
+{ita:"Il segnale raffigurato preannuncia un dosso",urdu:"Ye dosso / speed breaker ka nishaan hai",ans:"V",cap:2},
+{ita:"Il segnale indica divieto di sosta",urdu:"Yahan gari khari karna mana hai",ans:"V",cap:4},
+{ita:"Il segnale di STOP obbliga a fermarsi",urdu:"STOP par rukna zaroori hai",ans:"V",cap:3},
+{ita:"Il segnale indica limite 50 km/h",urdu:"50 speed limit ka board hai",ans:"V",cap:11},
+{ita:"Il segnale indica dare precedenza",urdu:"Agli ko pehle jane do",ans:"V",cap:3}
+];
+for(var i=5;i<30;i++){var c=(i%25)+1;qs.push({ita:"Domanda "+(i+1)+" - Dare precedenza ai pedoni sulle strisce (Cap "+c+")",urdu:"Zebra par paidal ko rasta dena Q"+(i+1)+" Cap "+c,ans:"V",cap:c});}
+var cur=0,time=1200,risp=[],activeQs=[],timerInt=null;
+function goHome(){document.getElementById('homePage').style.display='block';document.querySelectorAll('.page').forEach(function(p){p.style.display='none'});document.querySelectorAll('.bottom-nav div').forEach(function(d){d.classList.remove('activeN')});document.getElementById('nav-home').classList.add('activeN');}
+function openPage(id){document.getElementById('homePage').style.display='none';document.querySelectorAll('.page').forEach(function(p){p.style.display='none'});document.getElementById(id).style.display='block';}
+function openQuiz(type,capId){if(type=='full'){activeQs=[].concat(qs).sort(function(){return 0.5-Math.random()}).slice(0,30);document.getElementById('capLabel').innerText='Full Book';}else{activeQs=qs.filter(function(q){return q.cap==capId});if(activeQs.length<5){activeQs=[];for(var i=0;i<10;i++){activeQs.push({ita:"Capitolo "+capId+" - "+capitoli[capId-1].it+" Domanda "+(i+1),urdu:"Cap "+capId+" Q"+(i+1),ans:"V",cap:capId});}}document.getElementById('capLabel').innerText='Cap '+capId+' - '+capitoli[capId-1].ur;}cur=0;risp=new Array(activeQs.length).fill(null);time=1200;openPage('quizPage');render();if(timerInt)clearInterval(timerInt);timerInt=setInterval(function(){var m=Math.floor(time/60),s=time%60;document.getElementById('timer').innerText=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);if(time>0)time--;},1000);}
+function jumpRange(s){cur=s;if(cur>=activeQs.length)cur=activeQs.length-1;render();}
+function render(){var total=activeQs.length;document.getElementById('c').innerText="Domanda "+(cur+1)+" di "+total;document.getElementById('q').innerText=activeQs[cur].ita;document.getElementById('qu').innerText=activeQs[cur].urdu;var n=document.getElementById('nums');n.innerHTML="";var start=Math.floor(cur/10)*10;for(var i=start;i<Math.min(start+10,total);i++){var d=document.createElement('div');d.innerText=i+1;if(i==cur)d.className='active';if(risp[i])d.style.background='#a5d6a7';d.onclick=(function(idx){return function(){cur=idx;render();}})(i);n.appendChild(d);}document.querySelectorAll('.top div').forEach(function(d){d.classList.remove('activeT')});var tIdx=Math.floor(cur/10);if(document.getElementById('t'+(tIdx+1)))document.getElementById('t'+(tIdx+1)).classList.add('activeT');document.getElementById('bV').className=risp[cur]=='V'?'sel':'';document.getElementById('bF').className=risp[cur]=='F'?'sel':'';}
+function ans(v){risp[cur]=v;if(v!=activeQs[cur].ans){var errs=JSON.parse(localStorage.getItem('azhar_errors')||'[]');errs.push({ita:activeQs[cur].ita,urdu:activeQs[cur].urdu,cap:activeQs[cur].cap});localStorage.setItem('azhar_errors',JSON.stringify(errs));}render();if(cur<activeQs.length-1){setTimeout(function(){cur++;render();},250);}}
+function next(){if(cur<activeQs.length-1){cur++;render();}}
+function prev(){if(cur>0){cur--;render();}}
+function check(){var ok=0;for(var i=0;i<activeQs.length;i++)if(risp[i]==activeQs[i].ans)ok++;var total=activeQs.length;var err=total-ok;var res=err<=3?"✅ PROMOSSO! Mubarak!":"❌ BOCCIATO";alert("RIEPILOGO\n"+document.getElementById('capLabel').innerText+"\nSahi: "+ok+"/"+total+"\nGhalat: "+err+"\n"+res);renderErrorList();}
+function renderChapters(){var h='';capitoli.forEach(function(c){var cnt=qs.filter(function(q){return q.cap==c.id}).length;h+="<div class='cap-btn' onclick=\"openQuiz('cap',"+c.id+")\"><b>Cap "+c.id+" - "+c.ur+" ("+cnt+" Q)</b><span>"+c.it+"</span></div>";});h+="<div class='cap-btn' style='grid-column:1/-1;background:#222;color:#fff;text-align:center' onclick=\"openQuiz('full')\"><b style='color:#fff'>📝 TUTTI - Full Book</b><span style='color:#ccc'>30 Domande Mix</span></div>";document.getElementById('capList').innerHTML=h;var a='';capitoli.forEach(function(c){a+="<div class='arg-box'><h4 style='margin:0;color:#009246;font-size:12px'>Cap "+c.id+": "+c.it+"</h4><b style='color:#ce2b37;font-size:11px'>"+c.ur+"</b><p style='font-size:11px;margin:4px 0'>"+c.d+"<br>Importante per esame.</p><button onclick=\"openQuiz('cap',"+c.id+")\" style='background:#009246;color:#fff;border:none;padding:5px 10px;border-radius:5px'>📚 Quiz</button></div>";});document.getElementById('argList').innerHTML=a;var v='';capitoli.forEach(function(c){v+="<div class='arg-box'><b style='font-size:11px'>Cap "+c.id+": "+c.it+"</b><br><div style='background:#000;color:#fff;padding:15px;text-align:center;border-radius:6px;margin-top:4px'>▶️ Video Cap "+c.id+"</div></div>";});document.getElementById('videoList').innerHTML=v;}
+function renderErrorList(){var errs=JSON.parse(localStorage.getItem('azhar_errors')||'[]');if(errs.length==0){document.getElementById('errorList').innerHTML='<p>Koi galat nahi</p>';return;}document.getElementById('errorList').innerHTML=errs.slice(-20).reverse().map(function(e){return "<div class='arg-box'><b style='color:red'>Cap "+e.cap+"</b> - "+e.ita+"<br><span style='color:#b00000'>"+e.urdu+"</span></div>";}).join('')+"<button onclick='localStorage.removeItem(\"azhar_errors\");renderErrorList()' style='background:red;color:#fff;border:none;padding:6px 12px;border-radius:5px;margin-top:8px'>Clear</button>";}
+renderChapters();renderErrorList();goHome();
+</script></body></html>
