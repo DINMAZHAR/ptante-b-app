@@ -2,65 +2,51 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Patente B - Azhar PK</title>
+<title>Patente B - 30Q 20Min + Pics - Azhar</title>
 <style>
-*{box-sizing:border-box; font-family:sans-serif}
-body{margin:0; background:#0a1f3a; color:white}
-#entry{padding:20px; max-width:500px; margin:auto}
-#entry h2{text-align:center}
-.cardE{background:#1a345e; border:1px solid #8aa; border-radius:25px; padding:20px; margin:15px 0; cursor:pointer; text-align:center}
-.cardE:active{background:#2a4a7a; transform:scale(0.98)}
-.cardE img{width:160px; background:white; border-radius:10px; margin-top:10px}
-.small{font-size:12px; opacity:0.8; margin-top:10px}
-
-/* EXAM APP - hidden at start */
-#examApp{display:none; background:white; color:black; min-height:100vh}
-.top{display:flex} .left{width:28%; background:#1a5fb4; color:white; padding:8px; text-align:center} .box{background:white; color:black; padding:8px; margin-bottom:6px; font-size:12px}
-.right{width:72%; padding:10px; position:relative} .risposta{position:absolute; right:20px; top:50%}
-.risposta button{width:70px; height:70px; font-size:40px; border:2px solid #1a5fb4; background:white; border-radius:6px}
-.bottom{display:flex; background:#e9eef5} .nav{display:grid; grid-template-columns:repeat(10,1fr); gap:2px; flex:1} .nav div{padding:6px; text-align:center; background:#a3c2e8; font-weight:bold}
-.btn-blue{background:#1a5fb4; color:white; border:none; padding:8px}
-#timer{font-weight:bold; font-size:20px}
+*{box-sizing:border-box; font-family:Arial} body{margin:0; background:#0a1f3a; color:white}
+#entry{padding:15px; max-width:500px; margin:auto} #entry h2{text-align:center}
+.cardE{background:#1a345e; border:1px solid #8aa; border-radius:22px; padding:18px; margin:12px 0; cursor:pointer; text-align:center}
+#exam{display:none; background:white; color:black; min-height:100vh}
+.top{display:flex} .left{width:30%; background:#1a5fb4; color:white; padding:8px; text-align:center} .box{background:white; color:black; padding:8px; margin-bottom:6px; font-size:11px; border-radius:3px}
+.right{width:70%; padding:10px; position:relative}
+.picBox{width:100%; background:white; border:2px solid #333; border-radius:10px; height:190px; display:flex; align-items:center; justify-content:center; margin:10px 0}
+.picBox img{max-width:100%; max-height:180px; object-fit:contain}
+.ris{position:absolute; right:10px; top:58%} .ris button{width:62px; height:62px; font-size:36px; border:2px solid #1a5fb4; background:white; border-radius:6px; margin:3px}
+.ris button.sel{background:#1a5fb4; color:white}
+.bottom{display:flex; background:#e9eef5; border-top:2px solid #ccc}
+.nav{flex:1; display:grid; grid-template-columns:repeat(10,1fr); gap:2px; padding:4px}
+.nav div{padding:7px 0; text-align:center; background:#a3c2e8; font-weight:bold; cursor:pointer; border-bottom:3px solid transparent}
+.nav div.active{border-bottom:3px solid #1a5fb4; background:#7bb2ff}
+.nav div.ok{background:#4CAF50; color:white} .nav div.no{background:#ff9800; color:white}
+.btn-blue{background:#1a5fb4; color:white; border:none; padding:10px; font-weight:bold}
+#timer{font-size:22px; font-weight:bold; color:red}
 </style>
 </head>
 <body>
 
-<!-- YAHI WOH SCREEN HAI JO AAPKI PHOTO ME HAI -->
 <div id="entry">
 <h2>Modalità schede d'esame</h2>
-
-<div class="cardE" onclick="openMode('vertical')">
-La modalità <b>esercitazione (verticale)</b> è ottimizzata per il tuo dispositivo mobile, veloce e semplice, ti aiuta a studiare i quiz
-<br>
-<img src="https://i.ibb.co/1fG8v0p7/vertical-demo.png" onerror="this.src='https://via.placeholder.com/150x300?text=↑+Segnale'">
+<div class="cardE" onclick="startExam()">
+La modalità <b>esercitazione (verticale)</b> è ottimizzata per il tuo dispositivo mobile<br><br>📱 <b>MOBILE + PICS</b>
+</div>
+<div class="cardE" onclick="startExam()">
+Per fare come se fossi <b>all'esame</b> metti il tuo dispositivo in <b>orizzontale</b><br><br>🖥️ <b>ESAME REALE - 30Q / 20Min / Con Foto</b>
+</div>
 </div>
 
-<div class="cardE" onclick="openMode('orizzontale')">
-Per fare come se fossi <b>all'esame</b> metti il tuo dispositivo in <b>orizzontontale</b>.<br>
-Per vedere lo schermo come all'esame, esercitati sul computer della tua autoscuola oppure con www.patenteonline.it.<br><br>
-Prima di fare come all'esame, guarda le istruzioni nel "tutorial per l'esame" che trovi nelle videolezioni
-<br>
-<img src="https://i.ibb.co/1fG8v0p7/vertical-demo.png" onerror="this.src='https://via.placeholder.com/300x150?text=Domanda+1+di+40+V+F'">
-<div class="small">Escluse le regioni Sicilia, Trentino Alto Adige, Valle D'Aosta, Friuli Venezia Giulia</div>
-</div>
-
-<label style="display:flex; align-items:center; gap:10px; margin-top:20px"><input type="checkbox" style="width:25px; height:25px"> Non mostrare più. Potrai cambiare la tua scelta dal menù</label>
-</div>
-
-<!-- ASAL EXAM -->
-<div id="examApp">
+<div id="exam">
 <div class="top">
 <div class="left">
-<div class="box">👨<br><b>dinm0</b><br>CODICE FISCALE<br>Scheda fac-simile esame G6<br>Abilitazione: SUP</div>
-<div class="box">Tempo a disposizione<br><span id="timer">39:59</span><br><button class="btn-blue" style="width:100%">Riepilogo</button></div>
-<div style="font-size:10px; margin-top:5px">Ministero Infrastrutture e Trasporti</div>
+<div class="box">👨<br><b>dinm0 Azhar</b><br>Scheda fac-simile esame B<br>Abilitazione: B</div>
+<div class="box">Tempo a disposizione<br><span id="timer">20:00</span><br><button class="btn-blue" style="width:100%; margin-top:4px" onclick="riepilogo()">Riepilogo</button></div>
 </div>
 <div class="right">
-<b id="qCount">Domanda 1 di 40</b>
-<p id="qIta" style="font-size:18px; margin:20px 0">I tempi definiti "altri lavori" sono considerati tempi di guida</p>
-<p id="qUrdu" style="color:red; background:#fff0f0; padding:5px; font-weight:bold">Ye driving time me shumar hota hai?</p>
-<img id="qImg" style="max-width:180px; display:none">
-<div class="risposta">Risposta<br><button onclick="ans('V')" id="bV">V</button><button onclick="ans('F')" id="bF">F</button></div>
+<b id="qCount">Domanda 1 di 30</b>
+<p id="qIta" style="font-size:16px; font-weight:bold; margin:8px 0">...</p>
+<div class="picBox"><img id="qImg" src=""></div>
+<p id="qUrdu" style="color:#c00000; background:#fff0f0; padding:6px; border-radius:5px; font-weight:bold; font-size:13px"></p>
+<div class="ris">Risposta<br><button id="bV" onclick="answer('V')">V</button><button id="bF" onclick="answer('F')">F</button></div>
 </div>
 </div>
 <div class="bottom">
@@ -71,48 +57,51 @@ Prima di fare come all'esame, guarda le istruzioni nel "tutorial per l'esame" ch
 </div>
 
 <script>
-let cur=0, time=40*60-1, risp=Array(40).fill(null);
+// 30 SAWAL - HAR EK ME PIC!
 let qs=[
-{ita:"I tempi definiti \"altri lavori\" sono considerati tempi di guida", urdu:"Doosre kaam driving time hain?", ans:"F"},
-{ita:"Il segnale indica diritto di precedenza", urdu:"Pehle jane ka haq", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Italian_traffic_signs_-_diritto_di_precedenza.svg/200px-Italian_traffic_signs_-_diritto_di_precedenza.svg.png"},
-{ita:"Il segnale di STOP obbliga a fermarsi", urdu:"STOP par rukna zaroori", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Italian_traffic_signs_-_stop.svg/200px-Italian_traffic_signs_-_stop.svg.png"},
+{ita:"Il segnale rettangolare blu con freccia dritta indica direzione obbligatoria diritto", urdu:"Neela chaukor nishaan seedha jane ka hukum deta hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Italian_traffic_signs_-_direzione_obbligatoria_dritto.svg/400px-Italian_traffic_signs_-_direzione_obbligatoria_dritto.svg.png"},
+{ita:"Il segnale triangolare con bordo rosso indica diritto di precedenza", urdu:"Tikona nishaan pehle jane ka haq deta hai", ans:"F", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Italian_traffic_signs_-_dare_precedenza.svg/400px-Italian_traffic_signs_-_dare_precedenza.svg.png"},
+{ita:"Il segnale di STOP obbliga a fermarsi e dare precedenza", urdu:"STOP par rukna aur rasta dena zaroori hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Italian_traffic_signs_-_stop.svg/400px-Italian_traffic_signs_-_stop.svg.png"},
+{ita:"Il segnale circolare blu con barra rossa indica divieto di sosta", urdu:"Neela gol nishaan gari khari karna mana hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Italian_traffic_signs_-_divieto_di_sosta.svg/400px-Italian_traffic_signs_-_divieto_di_sosta.svg.png"},
+{ita:"Il segnale circolare rosso con numero 50 indica limite massimo 50 km/h", urdu:"Laal gol nishaan 50 speed limit hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Italian_traffic_signs_-_limite_massimo_di_velocit%C3%A0_50.svg/400px-Italian_traffic_signs_-_limite_massimo_di_velocit%C3%A0_50.svg.png"},
+{ita:"Il segnale indica senso vietato - divieto di accesso", urdu:"Is raste me dakhil hona mana hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Italian_traffic_signs_-_senso_vietato.svg/400px-Italian_traffic_signs_-_senso_vietato.svg.png"},
 ];
-for(let i=qs.length;i<40;i++) qs.push({ita:"Domanda "+(i+1)+" fac-simile - Il sorpasso in curva è vietato", urdu:"Mor par overtake mana hai?", ans:"V"})
+for(let i=qs.length;i<30;i++){ qs.push({ita:"Domanda "+(i+1)+" - E' obbligatorio dare precedenza ai pedoni sulle strisce", urdu:"Zebra crossing par paidal ko rasta dena zaroori hai? (Q "+(i+1)+")", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Italian_traffic_signs_-_dare_precedenza.svg/200px-Italian_traffic_signs_-_dare_precedenza.svg.png"}) }
 
-function openMode(m){
- if(m=='vertical'){
-   alert("Verticale Mode - Mobile ke liye! Abhi aapko seedha exam mode me le ja rahe hain, vertical wala kal add kar denge!");
- }
+let cur=0, time=20*60, risp=Array(30).fill(null);
+function startExam(){
  document.getElementById('entry').style.display='none';
- document.getElementById('examApp').style.display='block';
- if(m=='orizzontale' && window.innerHeight>window.innerWidth){
-   alert("📱 Phone ko ghumao! Horizontal (Seedha) karo jaise exam me hota hai!");
- }
+ document.getElementById('exam').style.display='block';
  render();
  setInterval(()=>{
-   let mm=Math.floor(time/60), ss=time%60;
-   document.getElementById('timer').innerText=(mm<10?"0"+mm:mm)+":"+(ss<10?"0"+ss:ss);
-   time--;
+  let m=Math.floor(time/60), s=time%60;
+  document.getElementById('timer').innerText=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+  if(time<=0) riepilogo(); time--;
  },1000);
 }
 function render(){
- document.getElementById('qCount').innerText="Domanda "+(cur+1)+" di 40";
+ document.getElementById('qCount').innerText="Domanda "+(cur+1)+" di 30";
  document.getElementById('qIta').innerText=qs[cur].ita;
  document.getElementById('qUrdu').innerText=qs[cur].urdu;
- let im=document.getElementById('qImg');
- if(qs[cur].img){ im.src=qs[cur].img; im.style.display="block"; } else im.style.display="none";
+ document.getElementById('qImg').src=qs[cur].img;
+ document.getElementById('bV').className=risp[cur]=='V'?'sel':'';
+ document.getElementById('bF').className=risp[cur]=='F'?'sel':'';
  let nav=document.getElementById('nav'); nav.innerHTML="";
- let s=Math.floor(cur/10)*10;
- for(let i=s;i<Math.min(s+10,40);i++){
-   let d=document.createElement('div'); d.innerText=i+1;
-   if(i==cur) d.style.borderBottom="3px solid blue";
-   if(risp[i]) d.style.background=risp[i]==qs[i].ans?"#4CAF50":"#ff9800";
-   d.onclick=()=>{cur=i; render();}; nav.appendChild(d);
+ let st=Math.floor(cur/10)*10;
+ for(let i=st;i<Math.min(st+10,30);i++){
+  let d=document.createElement('div'); d.innerText=i+1;
+  if(i==cur) d.className='active';
+  if(risp[i]) d.className+=' '+(risp[i]==qs[i].ans?'ok':'no');
+  d.onclick=()=>{cur=i; render();}; nav.appendChild(d);
  }
 }
-function ans(v){ risp[cur]=v; if(cur<39) cur++; render(); }
-function next(){ if(cur<39) cur++; render(); }
-function prev(){ if(cur>0) cur--; render(); }
+function answer(v){ risp[cur]=v; render(); if(cur<29){cur++; setTimeout(render,250);} }
+function next(){ if(cur<29){cur++; render();} }
+function prev(){ if(cur>0){cur--; render();} }
+function riepilogo(){
+ let ok=0; for(let i=0;i<30;i++) if(risp[i]==qs[i].ans) ok++;
+ alert("RIEPILOGO B - 30Q / 20Min\nSahi: "+ok+" / 30\nGhalat: "+(30-ok)+"\n"+((30-ok)<=3?"✅ PROMOSSO!":"❌ BOCCIATO!"));
+}
 </script>
 </body>
 </html>
