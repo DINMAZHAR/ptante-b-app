@@ -6,31 +6,31 @@
 <style>
 body{font-family:sans-serif; text-align:center; background:#eef6ff; padding:10px}
 .card{background:white; border-radius:20px; padding:15px; max-width:400px; margin:auto; box-shadow:0 5px 15px #999}
-img{width:100%; height:220px; object-fit:cover; border-radius:12px; border:2px solid #333}
+img{width:100%; height:250px; object-fit:contain; border-radius:12px; background:white; border:2px solid #333}
 button{width:48%; padding:14px; margin:5px 1%; font-size:17px; border-radius:10px; border:none; background:#007bff; color:white; font-weight:bold}
-#urdu{color:#c00000; font-weight:bold; background:#fff0f0; padding:8px; border-radius:8px}
+#urdu{color:#c00000; font-weight:bold; background:#fff0f0; padding:8px; border-radius:8px; font-size:16px}
 #next{background:#28a745; width:100%; margin-top:15px}
 </style>
 </head>
 <body>
 <div class="card">
-<h2 style="margin:5px">🇮🇹 Patente B Quiz 🇵🇰</h2>
+<h2 style="margin:5px">🇮🇹 Patente B - Azhar 🇵🇰</h2>
 <img id="pic" src="">
 <p id="ita" style="font-weight:bold; font-size:18px"></p>
 <p id="urdu"></p>
-<button onclick="check(true)">Vero</button>
-<button onclick="check(false)">Falso</button>
+<button onclick="check(true)">Vero - Sahi</button>
+<button onclick="check(false)">Falso - Ghalat</button>
 <h3 id="res"></h3>
 <button id="next" onclick="nextQ()">Agla Sawal ➡️</button>
 <p id="count"></p>
 </div>
-
 <script>
 let qs=[
-{img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500", ita:"Il segnale indica STOP - Fermarsi e dare precedenza", urdu:"Is nishaan ka matlab hai - Ruk jao aur rasta do", ans:true},
-{img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500", ita:"Il segnale indica divieto di sosta", urdu:"Yahan gari khari karna mana hai", ans:true},
-{img:"https://images.unsplash.com/photo-1591088398332-8a7791972843?w=500", ita:"Il limite di velocità in città è 150 km/h", urdu:"Sheher me speed limit 150 hai", ans:false},
-{img:"https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=500", ita:"Con la patente B si può guidare un'autovettura", urdu:"Patente B se car chala sakte hain", ans:true}
+{img:"https://upload.wikimedia.org/wikipedia/commons/9/91/Italian_traffic_signs_-_stop.svg", ita:"Il segnale indica STOP - Fermarsi e dare precedenza", urdu:"Is nishaan ka matlab hai - Ruk jao aur rasta do", ans:true},
+{img:"https://upload.wikimedia.org/wikipedia/commons/a/a5/Italian_traffic_signs_-_divieto_di_sosta.svg", ita:"Il segnale indica divieto di sosta", urdu:"Yahan gari khari karna mana hai", ans:true},
+{img:"https://upload.wikimedia.org/wikipedia/commons/7/7e/Italian_traffic_signs_-_limite_massimo_di_velocit%C3%A0_50.svg", ita:"Il limite di velocità in città è 50 km/h", urdu:"Sheher me speed limit 50 hai - Ye sahi hai", ans:true},
+{img:"https://upload.wikimedia.org/wikipedia/commons/1/1d/Italian_traffic_signs_-_senso_vietato.svg", ita:"Il segnale indica senso vietato", urdu:"Is raste par jana mana hai", ans:true},
+{img:"https://upload.wikimedia.org/wikipedia/commons/3/3a/Italian_traffic_signs_-_precedenza.svg", ita:"Il segnale indica diritto di precedenza", urdu:"Aapko pehle jane ka haq hai", ans:true}
 ];
 let i=0;
 function loadQ(){
@@ -42,7 +42,7 @@ function loadQ(){
 }
 function check(v){
  if(v==qs[i].ans) document.getElementById('res').innerHTML="✅ Shabash! Sahi Jawab!";
- else document.getElementById('res').innerHTML="❌ Ghalat! Soch ke jawab do";
+ else document.getElementById('res').innerHTML="❌ Ghalat Jawab!";
 }
 function nextQ(){ i=(i+1)%qs.length; loadQ(); }
 loadQ();
