@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Patente B 30Q</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Patente B 30Q 20Min - Final Pics</title>
 <style>
 body{margin:0; font-family:Arial; background:#e8efe8}
-#box{max-width:900px; margin:auto; background:white; border:1px solid #aaa}
-.top{display:flex; background:#f0f0f0; border-bottom:1px solid #aaa}
-.top div{flex:1; padding:8px; text-align:center; border-right:1px solid #aaa; font-size:13px}
-.num{display:flex; background:white; border-bottom:1px solid #aaa}
+#box{max-width:900px; margin:auto; background:white; border:1px solid #999}
+.top{display:flex; background:#f0f0f0; border-bottom:1px solid #999}
+.top div{flex:1; padding:8px; text-align:center; border-right:1px solid #999; font-size:12px}
+.num{display:flex; background:white; border-bottom:2px solid #999}
 .num div{flex:1; padding:10px 0; text-align:center; border-right:1px solid #ddd; font-weight:bold; cursor:pointer}
-.num div.active{background:#333; color:white}
+.num div.active{background:#222; color:white}
 .main{display:flex}
-.left{width:35%; border-right:1px solid #aaa; padding:20px; text-align:center; background:white}
-.left img{width:90%; max-height:220px}
-.right{width:65%; padding:15px}
-.urdu{color:red; background:#fff0f0; padding:6px; margin-top:10px; font-weight:bold; font-size:13px}
-.foot{display:flex; padding:10px; background:#e8efe8; border-top:1px solid #aaa; align-items:center}
-.vf{margin:auto; display:flex; gap:10px}
-.vf button{width:60px; height:60px; font-size:30px; font-weight:bold; border:2px solid #333; background:white; border-radius:50%}
-.vf button.sel{background:#4CAF50; color:white}
+.left{width:38%; padding:15px; text-align:center; border-right:1px solid #999; background:white}
+.left img{width:95%; max-height:230px}
+.right{width:62%; padding:12px}
+.urdu{color:#b00000; background:#fff0f0; padding:6px; margin-top:10px; font-weight:bold; font-size:13px; border-radius:5px}
+.vf{display:flex; gap:15px; justify-content:center; margin-top:25px}
+.vf button{width:70px; height:70px; font-size:32px; font-weight:bold; border:3px solid #333; border-radius:50%; background:white; cursor:pointer}
+.vf button.sel{background:#4CAF50; color:white; border-color:green}
+.foot{display:flex; padding:10px; background:#e8efe8; border-top:2px solid #999; align-items:center}
 </style>
 </head>
 <body>
@@ -27,51 +28,55 @@ body{margin:0; font-family:Arial; background:#e8efe8}
 <div class="top"><div>Domande 1-10</div><div>Domande 11-20</div><div>Domande 21-30</div></div>
 <div class="num" id="nums"></div>
 <div class="main">
-<div class="left"><{ita:"Il segnale raffigurato preannuncia un dosso", urdu:"Ye dosso / speed breaker ka nishaan hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='260' viewBox='0 0 300 260'><path d='M150 10 L280 230 L20 230 Z' fill='red'/><path d='M150 35 L255 210 L45 210 Z' fill='%23FFD700'/><path d='M60 190 Q110 140 150 160 Q190 180 240 190 L240 200 L60 200 Z' fill='black'/></svg>"},
-{ita:"Il segnale indica divieto di sosta", urdu:"Yahan gari khari karna mana hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><circle cx='150' cy='150' r='130' fill='%231E90FF' stroke='red' stroke-width='15'/><line x1='80' y1='80' x2='220' y2='220' stroke='red' stroke-width='15'/></svg>"},
-{ita:"Il segnale di STOP obbliga a fermarsi", urdu:"STOP par rukna zaroori", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><polygon points='150,20 270,80 270,220 150,280 30,220 30,80' fill='red'/><text x='150' y='190' font-size='90' font-weight='bold' fill='white' text-anchor='middle'>STOP</text></svg>"},></div>
+<div class="left"><img id="pic" src=""><div style="margin-top:12px">Timer <b id="timer" style="color:red; font-size:18px">20:00</b></div></div>
 <div class="right">
-<b id="count">Domanda 1 di 30</b> <span style="float:right">Timer <b id="timer">20:00</b></span>
-<p id="ita" style="font-weight:bold; margin-top:20px">Il segnale raffigurato preannuncia lavori in corso</p>
-<div class="urdu" id="urdu">Ye nishaan aage kaam chal raha hai batata hai - Dosso wala</div>
-<div style="margin-top:30px; text-align:center">
-<button onclick="ans('V')" id="bV" style="width:70px; height:70px; font-size:30px; border-radius:50%; border:2px solid">V</button>
-<button onclick="ans('F')" id="bF" style="width:70px; height:70px; font-size:30px; border-radius:50%; border:2px solid">F</button>
+<b id="c">Domanda 1 di 30</b>
+<p id="q" style="font-weight:bold; font-size:16px; margin-top:15px"></p>
+<div class="urdu" id="qu"></div>
+<div class="vf"><button id="bV" onclick="ans('V')">V</button><button id="bF" onclick="ans('F')">F</button></div>
 </div>
 </div>
-</div>
-<div class="foot">
-<button onclick="prev()">◀ Precedente</button>
-<div style="margin:auto"><button onclick="check()" style="padding:8px 30px">Correggi</button></div>
-<button onclick="next()">Successiva ▶</button>
-</div>
+<div class="foot"><button onclick="prev()" style="padding:8px 12px">◀ Precedente</button><button onclick="check()" style="margin:auto; padding:8px 30px; font-weight:bold">Correggi</button><button onclick="next()" style="padding:8px 12px">Successiva ▶</button></div>
 </div>
 
 <script>
 let qs=[
-{ita:"Il segnale raffigurato preannuncia un dosso", urdu:"Ye dosso / speed breaker ka nishaan hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/6/65/Italian_traffic_signs_-_dosso.svg"},
-{ita:"Il segnale indica divieto di sosta", urdu:"Gari khari karna mana hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/a/a5/Italian_traffic_signs_-_divieto_di_sosta.svg"},
-{ita:"Il segnale di STOP obbliga a fermarsi", urdu:"STOP par rukna zaroori hai", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/9/91/Italian_traffic_signs_-_stop.svg"},
-{ita:"Il limite in citta e' 50 km/h", urdu:"Sheher me 50 speed limit", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/7/7e/Italian_traffic_signs_-_limite_massimo_di_velocit%C3%A0_50.svg"},
-{ita:"Il segnale indica diritto di precedenza", urdu:"Pehle jane ka haq", ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/4/4a/Italian_traffic_signs_-_diritto_di_precedenza.svg"},
+{ita:"Il segnale raffigurato preannuncia un dosso", urdu:"Ye dosso / speed breaker ka nishaan hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='260' viewBox='0 0 300 260'><path d='M150 10 L280 230 L20 230 Z' fill='red'/><path d='M150 35 L255 210 L45 210 Z' fill='%23FFD700'/><path d='M60 190 Q110 140 150 160 Q190 180 240 190 L240 200 L60 200 Z' fill='black'/></svg>"},
+{ita:"Il segnale indica divieto di sosta", urdu:"Yahan gari khari karna mana hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><circle cx='150' cy='150' r='130' fill='%231E90FF' stroke='red' stroke-width='15'/><line x1='80' y1='80' x2='220' y2='220' stroke='red' stroke-width='15'/></svg>"},
+{ita:"Il segnale di STOP obbliga a fermarsi", urdu:"STOP par rukna zaroori hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><polygon points='150,20 270,80 270,220 150,280 30,220 30,80' fill='red'/><text x='150' y='190' font-size='90' font-weight='bold' fill='white' text-anchor='middle'>STOP</text></svg>"},
+{ita:"Il segnale raffigurato indica limite 50 km/h", urdu:"50 speed limit ka board hai", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><circle cx='150' cy='150' r='125' fill='white' stroke='red' stroke-width='18'/><text x='150' y='185' font-size='90' font-weight='bold' text-anchor='middle'>50</text></svg>"},
+{ita:"Il segnale indica dare precedenza", urdu:"Agli ko pehle jane do", ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='260' viewBox='0 0 300 260'><path d='M150 10 L280 230 L20 230 Z' fill='white' stroke='red' stroke-width='15'/><path d='M150 60 L150 170 M100 120 L150 60 L200 120' fill='none' stroke='black' stroke-width='12'/></svg>"}
 ];
-for(let i=5;i<30;i++) qs.push({ita:"Domanda "+(i+1)+" - Dare precedenza ai pedoni e' obbligatorio", urdu:"Pedestrian ko rasta dena zaroori Q"+(i+1), ans:"V", img:"https://upload.wikimedia.org/wikipedia/commons/2/2d/Italian_traffic_signs_-_dare_precedenza.svg"});
-
-let cur=0, time=20*60, ansArr=Array(30).fill(null);
-function render(){
- document.getElementById('count').innerText="Domanda "+(cur+1)+" di 30";
- document.getElementById('ita').innerText=qs[cur].ita;
- document.getElementById('urdu').innerText=qs[cur].urdu;
- document.getElementById('pic').src=qs[cur].img;
- let n=document.getElementById('nums'); n.innerHTML="";
- for(let i=0;i<10;i++){ let d=document.createElement('div'); let idx=Math.floor(cur/10)*10+i; if(idx<30){ d.innerText=idx+1; if(idx==cur) d.className='active'; if(ansArr[idx]) d.style.background='#a5d6a7'; d.onclick=()=>{cur=idx; render();}; n.appendChild(d);} }
- document.getElementById('bV').className=ansArr[cur]=='V'?'sel':''; document.getElementById('bF').className=ansArr[cur]=='F'?'sel':'';
+for(let i=5;i<30;i++){
+  qs.push({ita:"Domanda "+(i+1)+" - Dare precedenza ai pedoni e' obbligatorio sulle strisce", urdu:"Zebra crossing par paidal walon ko rasta dena zaroori hai? Q"+(i+1), ans:"V", img:"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='260' viewBox='0 0 300 260'><path d='M150 10 L280 230 L20 230 Z' fill='red'/><path d='M150 35 L255 210 L45 210 Z' fill='%23FFD700'/><text x='150' y='160' font-size='80' text-anchor='middle'>⚠</text></svg>"});
 }
-function ans(v){ ansArr[cur]=v; render(); if(cur<29) cur++; setTimeout(render,200); }
+
+let cur=0, time=20*60, risp=Array(30).fill(null);
+function render(){
+  document.getElementById('c').innerText="Domanda "+(cur+1)+" di 30";
+  document.getElementById('q').innerText=qs[cur].ita;
+  document.getElementById('qu').innerText=qs[cur].urdu;
+  document.getElementById('pic').src=qs[cur].img;
+  let n=document.getElementById('nums'); n.innerHTML="";
+  let start=Math.floor(cur/10)*10;
+  for(let i=start;i<Math.min(start+10,30);i++){
+    let d=document.createElement('div'); d.innerText=i+1;
+    if(i==cur) d.className='active';
+    if(risp[i]) d.style.background='#a5d6a7';
+    d.onclick=()=>{cur=i; render();};
+    n.appendChild(d);
+  }
+  document.getElementById('bV').className=risp[cur]=='V'?'sel':'';
+  document.getElementById('bF').className=risp[cur]=='F'?'sel':'';
+}
+function ans(v){ risp[cur]=v; render(); if(cur<29){cur++; setTimeout(render,250);} }
 function next(){ if(cur<29){cur++; render();} }
 function prev(){ if(cur>0){cur--; render();} }
-function check(){ let ok=0; for(let i=0;i<30;i++) if(ansArr[i]==qs[i].ans) ok++; alert("Sahi: "+ok+" / 30\nGhalat: "+(30-ok)+"\n"+((30-ok)<=3?"PROMOSSO!":"BOCCIATO")); }
-setInterval(()=>{ let m=Math.floor(time/60), s=time%60; document.getElementById('timer').innerText=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s); if(time>0) time--; },1000);
+function check(){
+  let ok=0; for(let i=0;i<30;i++) if(risp[i]==qs[i].ans) ok++;
+  alert("RIEPILOGO\\n30 Domande / 20 Min\\nSahi: "+ok+" / 30\\nGhalat: "+(30-ok)+"\\n"+((30-ok)<=3?"✅ PROMOSSO!":"❌ BOCCIATO"));
+}
+setInterval(()=>{let m=Math.floor(time/60), s=time%60; document.getElementById('timer').innerText=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s); if(time>0) time--;},1000);
 render();
 </script>
 </body>
